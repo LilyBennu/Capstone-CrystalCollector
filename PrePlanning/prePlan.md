@@ -73,6 +73,12 @@ CSS/ Design
 
 ### SECURITY ###
 
+security back end and front end
+- authorization 
+- authentication 
+- roles (only users, they have all access to crud)
+- sign in and sign up
+
 ==============================================================================
 
 ### Learning Goal ### 
@@ -81,7 +87,10 @@ CSS Animations???
 audio??? React
 Framermotion/ Sass/ Tailwhinds
 styled components (custom bootstraps components)
-Seperate data per user?
+
+*Seperate data per user?*
+
 *[AWS/ S3 (react SDK?)] learn how to let users upload images from computer directory*
+
 custom bootstraps template?
 
