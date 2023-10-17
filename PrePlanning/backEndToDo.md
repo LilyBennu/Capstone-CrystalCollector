@@ -44,7 +44,7 @@
         - make sure version is correct to handle security 
         - add all necessary depeddencies 
 
-=================================
+====================================================================
 
 ### research how to let users upload photos from their devices ### 
 
@@ -54,7 +54,7 @@
 
 *girl what did you learn?*
 
-=================================
+=====================================================================
 ### Create Models in Intelli J###
 [EST: 30 mins MAX][actual?: ]
 
@@ -64,7 +64,7 @@ create models and their fields, getters, setters, and hashcode for:
 - blurbs
 - users
 
-================================
+=====================================================================
 
 ### Create SQL files and tables ### 
 [EST: 1HRS MAX] [actual?: ]
