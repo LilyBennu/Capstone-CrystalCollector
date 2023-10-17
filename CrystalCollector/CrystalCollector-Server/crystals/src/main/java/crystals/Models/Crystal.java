@@ -2,6 +2,7 @@ package crystals.Models;
 
 public class Crystal {
 
+    private String crystalName;
     private String color;
     private int amountOwned;
     private String shape;

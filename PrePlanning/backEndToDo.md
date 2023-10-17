@@ -55,8 +55,8 @@
 *girl what did you learn?*
 
 =====================================================================
-### Create Models in Intelli J###
-[EST: 30 mins MAX][actual?: ]
+### Create Models in Intelli J ### [DONE]
+[EST: 30 mins MAX][actual?:10 ] 
 
 create models and their fields, getters, setters, and hashcode for: 
 - crystals
@@ -67,7 +67,7 @@ create models and their fields, getters, setters, and hashcode for:
 =====================================================================
 
 ### Create SQL files and tables ### 
-[EST: 1HRS MAX] [actual?: ]
+[EST: 1HRS MAX] [actual?: 45 mins]
 
 - create query tabs
     - for production schema n tables
