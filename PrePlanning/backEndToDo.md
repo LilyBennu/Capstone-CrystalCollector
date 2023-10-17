@@ -1,8 +1,8 @@
 ### BACK END TO DO ### 
 
 ========================= 
-[EST: 1 HR MAX] [actual?: ]
-### create maven intelli j project ###
+[EST: 1 HR MAX] [actual?: 30 ]
+### create maven intelli j project ### [DONE]
 
 - make all necessary packages for project
     - controllers
