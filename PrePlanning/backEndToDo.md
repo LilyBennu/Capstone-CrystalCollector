@@ -66,7 +66,7 @@ create models and their fields, getters, setters, and hashcode for:
 
 =====================================================================
 
-### Create SQL files and tables ### 
+### Create SQL files and tables ### [DONE]
 [EST: 1HRS MAX] [actual?: 45 mins]
 
 - create query tabs
@@ -90,9 +90,9 @@ create models and their fields, getters, setters, and hashcode for:
     - do these delete and alter table statements in the right order
     - insert data into values to for testing data
 
-=================================
+====================================================================
 
-### application properties ### 
+### application properties ### [DONE]
 
 - add special resources package 
     - in main 
@@ -111,18 +111,50 @@ create models and their fields, getters, setters, and hashcode for:
 
 *these first two will take the longest part of my time*
 
-- actually think and plan out what methods i will need per model object 
-- once methods is thought of and finalized write them in jdbc repositories (but i will write the sql statements in workbench first to make sure they actually work) 
+- actually think and plan out what methods i will need per model object [25 mins]
+
 - make the mappers 
+    - crystal mapper (need to add specification type)
+    - blurbs mapper
+    - appUser mapper
+
+- once methods is thought of and finalized write them in jdbc repositories (but i will write the sql statements in workbench first to make sure they actually work) 
+
+
 - once repositories and mappers are complete refactor jdbc repsitories into interfaces 
 
 ================================
 
 ### area to think up methods for model repositories ###
 
-[EST: 1 HR MAX] [actual?: ]
+[EST: 1 HR MAX] [actual?: 25 mins ]
 
 *thinking thinking*
+
+### MODEL METHODS ###
+
+CRYSTAL *these all need to be tied to a userId*
+- addCrystal (CREATE)
+- updateCrystal
+- removeCrystalById 
+- viewAllCrystals
+- viewCrystalsByCollection
+- viewCrystalsNotInCollection
+- viewCrystalsByName (sorting)
+- viewCrystalsByColor (sorting)
+
+BLURBS
+- addBlurb
+- updateBlurb
+- deleteBlurbById
+- viewBlurbs
+
+APPUSER
+- findByUsername
+- findById 
+- addAppUser 
+- updateRoles
+- getAuthorities
 
 
 ================================

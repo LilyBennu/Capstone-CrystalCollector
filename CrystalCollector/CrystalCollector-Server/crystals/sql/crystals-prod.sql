@@ -15,6 +15,13 @@ INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUE
 (5, 'NONSTONE'),
 (6, 'JEWLRY');
 
+create table app_user (
+    app_user_id int primary key auto_increment,
+    username varchar(50) not null unique,
+    password_hash varchar(2048) not null,
+    enabled bit not null default(1)
+);
+
 
 create table crystal (
 	crystal_id int primary key auto_increment,
@@ -27,8 +34,10 @@ create table crystal (
     in_collection boolean not null, 
     imageUrl varchar(250),
     crystal_specification_id int not null,
+    app_user_id int not null,
     -- may need to add to table for user uploading images
-    foreign key (crystal_specification_id) references crystal_specification(crystal_specification_id)
+    foreign key (crystal_specification_id) references crystal_specification(crystal_specification_id),
+    foreign key (app_user_id) references app_user(app_user_id)
 );
 
 
@@ -36,12 +45,8 @@ create table blurbs (
 	blurbs_id int primary key auto_increment,
     title varchar(250) not null,
     text_body varchar(2048) not null,
-    image_url varchar(500)
+    image_url varchar(500),
+    app_user_id int,
+    foreign key (app_user_id) references app_user(app_user_id)
 );
 
-create table app_user (
-    app_user_id int primary key auto_increment,
-    username varchar(50) not null unique,
-    password_hash varchar(2048) not null,
-    enabled bit not null default(1)
-);
