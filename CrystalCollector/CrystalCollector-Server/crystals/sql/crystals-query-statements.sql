@@ -20,8 +20,29 @@ insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes
     (2, 'Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
     1, 1, 'fakeurl.com/image2', 2, 1);
     
-    select
+select
+	app_user_id, username, password_hash, enabled
+from app_user
+where username = 'Lily';
+    
+select
 		app_user_id, username, password_hash, enabled
-	from app_user
-	where username = 'Lily';
+                from app_user
+                where app_user_id = 1;
+                
+ select
+	blurbs_id, title, text_body, image_url, app_user_id
+from blurbs
+where blurbs_id = 1;
+
+select * from blurbs
+where app_user_id = 1;
+
+select
+	blurbs_id, title, text_body, image_url, app_user_id
+from blurbs
+where blurbs_id = 1 AND app_user_id = 1; 
+
+delete from blurbs
+where blurbs_id = 7 AND app_user_id = 2;
 

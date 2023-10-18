@@ -2,6 +2,7 @@ package crystals.Data;
 
 import crystals.Models.AppUser;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -16,7 +17,7 @@ public class AppUserJdbcTemplateRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    - findByUsername
+
 
     public AppUser findByUsername(String username) {
 
@@ -30,7 +31,8 @@ public class AppUserJdbcTemplateRepository {
                 .findFirst()
                 .orElse(null);
     }
-//    - findById
+
+
     public AppUser findByAppUserId(int appUserId) {
         String sql = """
                 select
@@ -43,9 +45,22 @@ public class AppUserJdbcTemplateRepository {
                 .orElse(null);
     }
 
-    // -addAppUser
+
     public AppUser addAppUser(AppUser appUser) {
-        return null;
+        SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
+                .withTableName("app_user")
+                .usingColumns("username", "password_hash", "enabled")
+                .usingGeneratedKeyColumns("app_user_id");
+
+        HashMap<String, Object> args = new HashMap<>();
+        args.put("username", appUser.getAppUserName());
+        args.put("password_hash", appUser.getPasswordHash());
+        args.put("enabled", appUser.isEnabled());
+
+        int id = insert.executeAndReturnKey(args).intValue();
+        appUser.setAppUserId(id);
+
+        return appUser;
     }
 
 }
