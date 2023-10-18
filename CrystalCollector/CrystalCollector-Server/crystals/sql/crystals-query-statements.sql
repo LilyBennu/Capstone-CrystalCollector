@@ -13,7 +13,7 @@ insert into blurbs (blurbs_id, title, text_body, image_url, app_user_id)
 
 
 insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes, raw, in_collection, 
-    imageUrl, crystal_specification_id, app_user_id)
+    image_url, crystal_specification_id, app_user_id)
 	values
     (1, 'Amethyst', 'purple', '1', 'oblong', 'have had this one for a long while!', 
     1, 1, 'fakeurl.com/image1', 2, 1),
@@ -46,3 +46,8 @@ where blurbs_id = 1 AND app_user_id = 1;
 delete from blurbs
 where blurbs_id = 7 AND app_user_id = 2;
 
+ select * from crystal
+where crystal_id = 1 AND app_user_id = 1;
+
+select * from crystal
+where app_user_id = 1;

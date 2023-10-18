@@ -1,13 +1,16 @@
 package crystals.Data;
 
 import crystals.Models.AppUser;
+import crystals.Models.Blurbs;
 import crystals.Models.Crystal;
 import crystals.Models.CrystalSpecification;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class CrystalJdbcTemplateRepository {
@@ -19,27 +22,87 @@ public class CrystalJdbcTemplateRepository {
     }
 
 
-//    CRYSTAL *these all need to be tied to a userId*
-//    - addCrystal (CREATE)
     public Crystal addCrystal(Crystal crystal) {
-        return null;
+
+        SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
+                .withTableName("crystal")
+                .usingColumns("crystal_name, color, amount_owned, shape," +
+                        "notes, raw, in_collection,image_url, crystal_specification_id, app_user_id")
+                .usingGeneratedKeyColumns("crystal_id");
+        HashMap<String, Object> args = new HashMap<>();
+        args.put("crystal_name", crystal.getCrystalName());
+        args.put("color", crystal.getColor());
+        args.put("amount_owned", crystal.getAmountOwned());
+        args.put("shape", crystal.getShape());
+        args.put("notes", crystal.getNotes());
+        args.put("raw", crystal.isRaw());
+        args.put("in_collection", crystal.isInCollection());
+        args.put("image_url", crystal.getImageUrl());
+        args.put("crystal_specification_id", crystal.getCrystalSpecification());
+        args.put("app_user_id",crystal.getAppUserId());
+
+        int crystalId = insert.executeAndReturnKey(args).intValue();
+        crystal.setCrystalId(crystalId);
+
+        return crystal;
     }
 //    - updateCrystal
     public boolean updateCrystal(Crystal crystal) {
-        return false;
-    }
-//    - removeCrystalById
-    public boolean removeCrystalById(int crystalId) {
-        return false;
-    }
-//    - viewAllCrystals
-    public Crystal viewAllCrystals(Crystal crystal) {
-        return null;
+        String sql = """
+                update crystal set
+                    crystal_name = ?,
+                    color = ?,
+                    amount_owned = ?,
+                    shape = ?,
+                    notes = ?,
+                    raw = ?,
+                    in_collection = ?,
+                    image_url = ?,
+                    crystal_specification =?,
+                    app_user_id = ?
+                where crystal_id = ?;
+                """;
+        return jdbcTemplate.update(sql,
+                crystal.getCrystalName(),
+                crystal.getColor(),
+                crystal.getAmountOwned(),
+                crystal.getShape(),
+                crystal.getNotes(),
+                crystal.isRaw(),
+                crystal.isInCollection(),
+                crystal.getImageUrl(),
+                crystal.getCrystalSpecification(),
+                crystal.getAppUserId(),
+                crystal.getCrystalId()) > 0;
     }
 
-    // findCrystalById
-    public Crystal findCrystalById(Crystal crystal) {
-        return null;
+public boolean removeCrystalById(int crystalId) {
+
+    String sql = """
+                delete from crystal
+                where crystal_id = ? AND app_user_id = ?;
+                """;
+
+    return jdbcTemplate.update(sql, crystalId) > 0;
+}
+
+public List<Crystal> viewAllCrystals() {
+
+    String sql = """
+                select * from crystal
+                where app_user_id = ?;
+                """;
+    return jdbcTemplate.query(sql, new CrystalMapper());
+}
+
+
+    public Crystal findCrystalById(int blurbId) {
+
+        String sql = """
+                select * from crystal
+                where crystal_id = ? AND app_user_id = ?;
+                """;
+        return jdbcTemplate.query(sql, new CrystalMapper(), blurbId).stream().findFirst().orElse(null);
     }
 
 

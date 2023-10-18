@@ -32,7 +32,7 @@ create table crystal (
     notes varchar(2048),
     raw boolean not null,
     in_collection boolean not null, 
-    imageUrl varchar(250),
+    image_url varchar(250),
     crystal_specification_id int not null,
     app_user_id int not null,
     -- may need to add to table for user uploading images

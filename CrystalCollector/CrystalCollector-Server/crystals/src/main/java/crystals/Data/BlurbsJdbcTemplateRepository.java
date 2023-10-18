@@ -36,7 +36,7 @@ public class BlurbsJdbcTemplateRepository {
         return blurbs;
     }
 
-    
+
     public boolean updateBlurb(Blurbs blurbs) {
 
         String sql = """
@@ -54,21 +54,18 @@ public class BlurbsJdbcTemplateRepository {
                 blurbs.getImageUrl(),
                 blurbs.getAppUserId(),
                 blurbs.getBlurbsId()) > 0;
-
-
-
         return updated;
     }
 
 
-    public boolean deleteBlurbById(int blurbId, int appUserId) {
+    public boolean deleteBlurbById(int blurbId) {
 
         String sql = """
                 delete from blurbs
                 where blurbs_id = ? AND app_user_id = ?;
                 """;
 
-        return jdbcTemplate.update(sql, blurbId, appUserId) > 0;
+        return jdbcTemplate.update(sql, blurbId) > 0;
     }
 
 
@@ -90,7 +87,6 @@ public class BlurbsJdbcTemplateRepository {
                 from blurbs
                 where blurbs_id = ? AND app_user_id = ?;
                 """;
-
         return jdbcTemplate.query(sql, new BlurbsMapper(), blurbId).stream().findFirst().orElse(null);
     }
 
