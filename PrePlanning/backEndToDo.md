@@ -113,7 +113,7 @@ create models and their fields, getters, setters, and hashcode for:
 
 - actually think and plan out what methods i will need per model object [25 mins]
 
-- make the mappers 
+- make the mappers [like 1-2 hrs i think *cries*]
     - crystal mapper (need to add specification type)
     - blurbs mapper
     - appUser mapper
@@ -140,8 +140,9 @@ CRYSTAL *these all need to be tied to a userId*
 - viewAllCrystals
 - viewCrystalsByCollection
 - viewCrystalsNotInCollection
-- viewCrystalsByName (sorting)
-- viewCrystalsByColor (sorting)
+
+- viewCrystalsByName (sorting) [may not need these 2]
+- viewCrystalsByColor (sorting) [ ''' ]
 
 BLURBS
 - addBlurb
@@ -152,9 +153,8 @@ BLURBS
 APPUSER
 - findByUsername
 - findById 
-- addAppUser 
-- updateRoles
-- getAuthorities
+- addAppUser     
+- getAuthorities // may not need this 
 
 
 ================================
