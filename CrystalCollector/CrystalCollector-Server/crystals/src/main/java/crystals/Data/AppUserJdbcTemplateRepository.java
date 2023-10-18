@@ -17,12 +17,30 @@ public class AppUserJdbcTemplateRepository {
     }
 
 //    - findByUsername
+
     public AppUser findByUsername(String username) {
-        return null;
+
+        String sql = """
+                select
+                    app_user_id, username, password_hash, enabled
+                from app_user
+                where username = ?;
+                """;
+        return jdbcTemplate.query(sql, new Object[]{username}, new AppUserMapper()).stream()
+                .findFirst()
+                .orElse(null);
     }
 //    - findById
     public AppUser findByAppUserId(int appUserId) {
-        return null;
+        String sql = """
+                select
+                    app_user_id, username, password_hash, enabled
+                from app_user
+                where app_user_id = ?;
+                """;
+        return jdbcTemplate.query(sql, new Object[]{appUserId}, new AppUserMapper()).stream()
+                .findFirst()
+                .orElse(null);
     }
 
     // -addAppUser

@@ -98,7 +98,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - would like them displayed 3 at a time in rows
 - display crystal image, and name, and a button to view crystal maybe edit and delete buttons too
 - have a total of all crystals in collection up top, maybe some other stats??
-- ### *MAS IMPORTANTE* ### - 
+- ### *MAS IMPORTANTE* ### - .sort() React function heck yeeeee
     - want to have several view functions for this page for the user 
         - view all crystals
         - view by collection 

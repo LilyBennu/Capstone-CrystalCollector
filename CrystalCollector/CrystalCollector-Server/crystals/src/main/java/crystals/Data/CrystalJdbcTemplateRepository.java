@@ -37,7 +37,10 @@ public class CrystalJdbcTemplateRepository {
         return null;
     }
 
-//    - viewCrystalsByInCollection // do I need these or can some kind of
-//    - viewCrystalsNotInCollection // sort function in React sort this for me?
-    // mwahahahah their are sort functions in React heck yeeeeeeeee
+    // findCrystalById
+    public Crystal findCrystalById(Crystal crystal) {
+        return null;
+    }
+
+
 }

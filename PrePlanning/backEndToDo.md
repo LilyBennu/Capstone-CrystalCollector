@@ -138,11 +138,13 @@ CRYSTAL *these all need to be tied to a userId*
 - updateCrystal
 - removeCrystalById 
 - viewAllCrystals
-- viewCrystalsByCollection
-- viewCrystalsNotInCollection
+- viewCrystalById duh!
 
-- viewCrystalsByName (sorting) [may not need these 2]
-- viewCrystalsByColor (sorting) [ ''' ]
+### these can be done using .sort() in front end
+*- viewCrystalsByCollection*
+*- viewCrystalsNotInCollection*
+*- viewCrystalsByName (sorting) [may not need these 2]*
+*- viewCrystalsByColor (sorting) [ ''' ]*
 
 BLURBS
 - addBlurb
@@ -191,11 +193,11 @@ APPUSER
 
 - use existing examples to fill in these classes high key!!! 
 - is not very complicated but just still really unfamiliar 
-- hopefully doesn't take me long and i can test security immediately when done
+- hopefully doesn't take me long and i can test security immediately when done *Esin said no need to test security, but make sure user is working*
 
 ===============================
 
-### test security #### 
+### test security #### NO MAS
 
 [EST: 2 HRS] [actual?: ]
 
@@ -222,6 +224,7 @@ APPUSER
     - blurbs
     - users 
 - go service by service making rules per model and validate them in the validate method 
+- uh oh duh populate the Result class as well
 
 =================================
 
