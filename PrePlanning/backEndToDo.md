@@ -190,6 +190,7 @@ APPUSER
 [45 mins alone on non stop errors related to @SpringConfiguration
 not being found, sql known good state order errors, literal wastes
 of tiiiiiiiiiime :O]
+[another hour for trying to fix known good state *cries*]
 
 shouldFindAppUserByUsername
 shouldNotFindNonExistantUsername

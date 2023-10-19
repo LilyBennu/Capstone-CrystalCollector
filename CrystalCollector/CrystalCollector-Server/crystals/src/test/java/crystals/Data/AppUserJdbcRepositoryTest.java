@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,7 +39,7 @@ public class AppUserJdbcRepositoryTest {
 
         assertNull(userNotFound);
 
-    } // something is wrong with my known good state is not passing consistently
+    }
 
 @Test
 void shouldFindAppUserById() {
@@ -47,7 +48,6 @@ void shouldFindAppUserById() {
     assertEquals(1, lily.getAppUserId());
 }
 
-//    shouldNotFindNonExistentAppUser
 @Test
 void shouldNotFindNonExistentAppUser() {
 
@@ -56,6 +56,36 @@ void shouldNotFindNonExistentAppUser() {
 
 }
 
-//    shouldAddAppUser
-//    shouldNotAddNullFieldsAppUser
+    @Test
+    void shouldAddAppUser() {
+
+        AppUser appUser = new AppUser();
+        appUser.setAppUserName("Lily");
+        appUser.setPasswordHash("aPasswordHash");
+
+        AppUser actual = repository.addAppUser(appUser);
+        appUser.setAppUserId(4);
+        assertEquals(appUser, actual);
+    }
+
+@Test
+void shouldNotAddNullFieldsAppUser() {
+
+    AppUser appUser = new AppUser();
+    appUser.setAppUserName(null);
+    appUser.setPasswordHash("aPasswordHash");
+
+    appUser.setAppUserId(4);
+
+    try {
+        repository.addAppUser(appUser);
+        fail("Expected an exception to be thrown");
+    } catch (DataIntegrityViolationException ex) {
+        assertTrue(ex.getMessage().contains("Column 'username' cannot be null"));
+    }
+
+
+}
+
+
 }
