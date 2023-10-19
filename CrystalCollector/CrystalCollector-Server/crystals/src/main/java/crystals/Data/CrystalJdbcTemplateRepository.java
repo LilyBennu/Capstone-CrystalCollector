@@ -59,7 +59,7 @@ public class CrystalJdbcTemplateRepository implements CrystalRepository {
                     image_url = ?,
                     crystal_specification =?,
                     app_user_id = ?
-                where crystal_id = ?;
+                where crystal_id = ? AND app_user_id = ?;
                 """;
         return jdbcTemplate.update(sql,
                 crystal.getCrystalName(),

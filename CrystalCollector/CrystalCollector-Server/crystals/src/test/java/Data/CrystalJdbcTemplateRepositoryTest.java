@@ -25,4 +25,21 @@ public class CrystalJdbcTemplateRepositoryTest {
     void setup() {
         knownGoodState.set();
     }
+
+
+//    shouldAddCrystal
+//    shouldNotAddMissingFieldsCrystal
+//    shouldNotAddCrystalWithoutAppUserId
+//    shouldUpdateCrystal
+//    shouldNotUpdateMissingFieldsCrystal
+//    shouldRemoveCrystal
+//    shouldNotRemoveNonExistentCrystal
+//    shouldNotRemoveCrystalWithoutAppUserId
+//    shouldFindAllCrystalsByUser
+//    shouldNotFindCrystalsWithoutAppUserId
+//    shouldFindCrystalById
+//    shouldNotFindNonExistentCrystal
+//    shouldNotFindCrystalWitoutAppUserId
+
+
 }

@@ -105,7 +105,7 @@ create models and their fields, getters, setters, and hashcode for:
 
 =============================
 
-### fill out data layer ### 
+### fill out data layer ### [DONE]
 
 [EST: 4 HRS MAX] [actual?: 4hrs n change ]
 
@@ -125,7 +125,7 @@ create models and their fields, getters, setters, and hashcode for:
 
 ================================
 
-### area to think up methods for model repositories ###
+### area to think up methods for model repositories ### [DONE]
 
 [EST: 1 HR MAX] [actual?: 25 mins ]
 
@@ -167,21 +167,66 @@ APPUSER
 
 [4 HRS MAX PLS] [actual?: ] 
 
-- in SQL make/ finish testing schema tab
-- in intelli j make data test package and classes per model 
+- in SQL make/ finish testing schema tab [*]
+- in intelli j make data test package and classes per model [*]
 - will make all other packages for testing while i am here 
-- make tests for:
+- make tests for:[*]
     - crystals/ specfication
     - blurbs
-- user tests will be in security test package 
+ 
 - hopefully my tests pass and don't make me suffer as usual lol
+
 - if not troubleshoot them til everything is passing for the right reasons
 
 =================================
 
-### area to brainstorm necessary tests for models ### 
+### area to brainstorm necessary tests for models ### [DONE]
+
+[1 HR MAX] [actual?: 15 mins]
 
 *thiiinkkiiinngggg*
+
+### APPUSER TESTS ### [TIME?: ]
+
+shouldFindAppUserByUsername
+shouldNotFindNonExistantUsername
+shouldFindAppUserById
+shouldNotFindNonExistentAppUser
+shouldAddAppUser
+shouldNotAddNullFieldsAppUser
+
+
+### BLURBS TESTS ### [TIME?: ]
+
+shouldAddBlurb
+shouldNotAddNullFieldsBlurb
+shouldNotAddBlurbWithoutAppUserId
+shouldUpdateBlurb
+shouldNotUpdateMissingFieldsBlurb
+shouldDeleteBlurb
+shouldNotDeleteNonExistentBlurb
+shouldNotDeleteBlurbWithoutAppUserId
+shouldFindAllBlurbs
+shouldNotFindBlurbsWithoutAppUserId
+shouldFindBlurbById
+shouldNotFindNonExistentBlurb
+shouldNotFindBlurbWithoutAppUserId
+
+### CRYSTALS TESTS ### [TIME?: ]
+
+shouldAddCrystal
+shouldNotAddMissingFieldsCrystal
+shouldNotAddCrystalWithoutAppUserId
+shouldUpdateCrystal
+shouldNotUpdateMissingFieldsCrystal
+shouldRemoveCrystal
+shouldNotRemoveNonExistentCrystal
+shouldNotRemoveCrystalWithoutAppUserId
+shouldFindAllCrystalsByUser
+shouldNotFindCrystalsWithoutAppUserId
+shouldFindCrystalById
+shouldNotFindNonExistentCrystal
+shouldNotFindCrystalWitoutAppUserId
 
 ===============================
 

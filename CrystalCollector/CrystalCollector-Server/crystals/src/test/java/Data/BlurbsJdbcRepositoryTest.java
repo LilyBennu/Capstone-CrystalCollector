@@ -26,7 +26,19 @@ public class BlurbsJdbcRepositoryTest {
     }
 
 
-
+//    shouldAddBlurb
+//    shouldNotAddNullFieldsBlurb
+//    shouldNotAddBlurbWithoutAppUserId
+//    shouldUpdateBlurb
+//    shouldNotUpdateMissingFieldsBlurb
+//    shouldDeleteBlurb
+//    shouldNotDeleteNonExistentBlurb
+//    shouldNotDeleteBlurbWithoutAppUserId
+//    shouldFindAllBlurbs
+//    shouldNotFindBlurbsWithoutAppUserId
+//    shouldFindBlurbById
+//    shouldNotFindNonExistentBlurb
+//    shouldNotFindBlurbWithoutAppUserId
 
 
 

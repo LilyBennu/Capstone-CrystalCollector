@@ -67,12 +67,14 @@ begin
 	values 
     (1, 'TestLily', 'password_hash1', 1),
     (2, 'TestYlil', 'password_hash2', 1);
+    
 
 insert into blurbs (blurbs_id, title, text_body, image_url, app_user_id)
 	values 
     (1, 'TestCrytals rock!', 'the best pet rock a girl could have', 'testurl.com', 1),
     (2, 'TestSuperJail', 'they had an episode about crystals, did that influence me?', 'fakeurl.com', 1),
-    (3, 'TestShikon Jewel', 'I wonder if I can get that cursed version of the Shikon Jewel online?', '123url.com', 2);
+    (3, 'TestShikon Jewel', 'I wonder if I can get that cursed version of the Shikon Jewel online?', '123url.com', 2),
+    (4, 'DeleteCopyTestSuperJail', 'they had an episode about crystals, did that influence me?', 'fakeurl.com', 1);
 
 
 insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes, raw, in_collection, 
@@ -82,7 +84,7 @@ insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes
     1, 1, 'fakeurl.com/image1', 2, 1),
     (2, 'TestSelenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
     1, 1, 'fakeurl.com/image2', 2, 1),
-    (3, 'Test2Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
+    (3, 'DeleteCopyTest2Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
     1, 1, 'fakeurl.com/image2', 2, 1);
     
     

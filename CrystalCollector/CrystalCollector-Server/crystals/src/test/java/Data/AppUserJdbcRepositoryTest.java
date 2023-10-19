@@ -1,12 +1,11 @@
 package Data;
 
 import crystals.Data.AppUserJdbcTemplateRepository;
-import crystals.Data.BlurbsJdbcTemplateRepository;
+import crystals.Models.AppUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,6 +25,18 @@ public class AppUserJdbcRepositoryTest {
         knownGoodState.set();
     }
 
-    //shouldFindAppUserById
-    //shouldNot
+//    shouldFindAppUserByUsername
+    @Test
+    void shouldFindAppUserByUsername() {
+
+        AppUser lily = repository.findByUsername("Lily");
+        assertEquals(1, lily.getAppUserId());
+
+    }
+
+//    shouldNotFindNonExistantUsername
+//    shouldFindAppUserById
+//    shouldNotFindNonExistentAppUser
+//    shouldAddAppUser
+//    shouldNotAddNullFieldsAppUser
 }
