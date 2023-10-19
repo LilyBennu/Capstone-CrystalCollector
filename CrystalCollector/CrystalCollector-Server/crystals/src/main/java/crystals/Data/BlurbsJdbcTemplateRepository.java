@@ -22,7 +22,7 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
 
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("blurbs")
-                .usingColumns("title, text_body, image_url, app_user_id")
+                .usingColumns("title", "text_body", "image_url", "app_user_id")
                 .usingGeneratedKeyColumns("blurbs_id");
         HashMap<String, Object> args = new HashMap<>();
         args.put("title", blurbs.getTitle());
@@ -64,7 +64,7 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
 
         String sql = """
                 delete from blurbs
-                where blurbs_id = ? AND app_user_id = ?;
+                where blurbs_id = ?;
                 """;
 
         return jdbcTemplate.update(sql, blurbId) > 0;
@@ -72,13 +72,11 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
 
 
     @Override
-    public List<Blurbs> findAllBlurbs() {
+    public List<Blurbs> findAllBlurbs(int appUserId) {
 
-        String sql = """
-                select * from blurbs
-                where app_user_id = ?;
-                """;
-        return jdbcTemplate.query(sql, new BlurbsMapper());
+        String sql = "select * from blurbs where app_user_id = ?;";
+
+        return jdbcTemplate.query(sql, new BlurbsMapper(), appUserId);
     }
 
 
@@ -89,7 +87,7 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
                 select
                     blurbs_id, title, text_body, image_url, app_user_id
                 from blurbs
-                where blurbs_id = ? AND app_user_id = ?;
+                where blurbs_id = ?;
                 """;
         return jdbcTemplate.query(sql, new BlurbsMapper(), blurbId).stream().findFirst().orElse(null);
     }

@@ -10,7 +10,7 @@ public interface CrystalRepository {
 
     boolean removeCrystalById(int crystalId);
 
-    List<crystals.Models.Crystal> viewAllCrystals();
+    List<crystals.Models.Crystal> viewAllCrystals(int appUserId);
 
     crystals.Models.Crystal findCrystalById(int blurbId);
 }

@@ -41,20 +41,20 @@ public class AppUserJdbcRepositoryTest {
 
     }
 
-@Test
-void shouldFindAppUserById() {
+    @Test
+    void shouldFindAppUserById() {
 
-    AppUser lily = repository.findByAppUserId(1);
-    assertEquals(1, lily.getAppUserId());
-}
+        AppUser lily = repository.findByAppUserId(1);
+        assertEquals(1, lily.getAppUserId());
+    }
 
-@Test
-void shouldNotFindNonExistentAppUser() {
+    @Test
+    void shouldNotFindNonExistentAppUser() {
 
-    AppUser missingMcGee = repository.findByAppUserId(MISSING_ID);
-    assertNull(missingMcGee);
+        AppUser missingMcGee = repository.findByAppUserId(MISSING_ID);
+        assertNull(missingMcGee);
 
-}
+    }
 
     @Test
     void shouldAddAppUser() {
@@ -68,24 +68,24 @@ void shouldNotFindNonExistentAppUser() {
         assertEquals(appUser, actual);
     }
 
-@Test
-void shouldNotAddNullFieldsAppUser() {
+    @Test
+    void shouldNotAddNullFieldsAppUser() {
 
-    AppUser appUser = new AppUser();
-    appUser.setAppUserName(null);
-    appUser.setPasswordHash("aPasswordHash");
+        AppUser appUser = new AppUser();
+        appUser.setAppUserName(null);
+        appUser.setPasswordHash("aPasswordHash");
 
-    appUser.setAppUserId(4);
+        appUser.setAppUserId(4);
 
-    try {
-        repository.addAppUser(appUser);
-        fail("Expected an exception to be thrown");
-    } catch (DataIntegrityViolationException ex) {
-        assertTrue(ex.getMessage().contains("Column 'username' cannot be null"));
+        try {
+            repository.addAppUser(appUser);
+            fail("Expected an exception to be thrown");
+        } catch (DataIntegrityViolationException ex) {
+            assertTrue(ex.getMessage().contains("Column 'username' cannot be null"));
+        }
+
+
     }
-
-
-}
 
 
 }

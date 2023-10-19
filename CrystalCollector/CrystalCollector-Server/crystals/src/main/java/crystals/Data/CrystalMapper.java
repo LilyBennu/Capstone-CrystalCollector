@@ -25,7 +25,7 @@ public class CrystalMapper implements RowMapper<Crystal> {
         crystal.setNotes(rs.getString("notes"));
         crystal.setRaw(rs.getBoolean("raw"));
         crystal.setInCollection(rs.getBoolean("in_collection"));
-        crystal.setCrystalSpecification(CrystalSpecification.valueOf(rs.getString("crystal_specification")));
+        crystal.setCrystalSpecification(CrystalSpecification.valueOf(rs.getString("crystal_type")));
         crystal.setImageUrl(rs.getString("image_url"));
         crystal.setAppUserId(rs.getInt("app_user_id"));
 

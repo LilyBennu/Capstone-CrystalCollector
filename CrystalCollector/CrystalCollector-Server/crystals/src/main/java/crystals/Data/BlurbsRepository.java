@@ -9,7 +9,7 @@ public interface BlurbsRepository {
 
     boolean deleteBlurbById(int blurbId);
 
-    List<crystals.Models.Blurbs> findAllBlurbs();
+    List<crystals.Models.Blurbs> findAllBlurbs(int appUserId);
 
     crystals.Models.Blurbs findBlurbById(int blurbId);
 }
