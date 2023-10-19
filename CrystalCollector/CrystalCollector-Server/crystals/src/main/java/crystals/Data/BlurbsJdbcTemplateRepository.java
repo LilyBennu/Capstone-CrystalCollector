@@ -1,6 +1,5 @@
 package crystals.Data;
 
-import crystals.Models.AppUser;
 import crystals.Models.Blurbs;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Repository
-public class BlurbsJdbcTemplateRepository {
+public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -18,6 +17,7 @@ public class BlurbsJdbcTemplateRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public Blurbs addBlurb(Blurbs blurbs) {
 
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
@@ -37,6 +37,7 @@ public class BlurbsJdbcTemplateRepository {
     }
 
 
+    @Override
     public boolean updateBlurb(Blurbs blurbs) {
 
         String sql = """
@@ -58,6 +59,7 @@ public class BlurbsJdbcTemplateRepository {
     }
 
 
+    @Override
     public boolean deleteBlurbById(int blurbId) {
 
         String sql = """
@@ -69,6 +71,7 @@ public class BlurbsJdbcTemplateRepository {
     }
 
 
+    @Override
     public List<Blurbs> findAllBlurbs() {
 
         String sql = """
@@ -79,6 +82,7 @@ public class BlurbsJdbcTemplateRepository {
     }
 
 
+    @Override
     public Blurbs findBlurbById(int blurbId) {
 
         String sql = """

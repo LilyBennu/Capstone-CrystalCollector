@@ -1,19 +1,16 @@
 package crystals.Data;
 
-import crystals.Models.AppUser;
-import crystals.Models.Blurbs;
+
 import crystals.Models.Crystal;
-import crystals.Models.CrystalSpecification;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Repository
-public class CrystalJdbcTemplateRepository {
+public class CrystalJdbcTemplateRepository implements CrystalRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -22,6 +19,7 @@ public class CrystalJdbcTemplateRepository {
     }
 
 
+    @Override
     public Crystal addCrystal(Crystal crystal) {
 
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
@@ -47,6 +45,7 @@ public class CrystalJdbcTemplateRepository {
         return crystal;
     }
 //    - updateCrystal
+    @Override
     public boolean updateCrystal(Crystal crystal) {
         String sql = """
                 update crystal set
@@ -76,6 +75,7 @@ public class CrystalJdbcTemplateRepository {
                 crystal.getCrystalId()) > 0;
     }
 
+@Override
 public boolean removeCrystalById(int crystalId) {
 
     String sql = """
@@ -86,6 +86,7 @@ public boolean removeCrystalById(int crystalId) {
     return jdbcTemplate.update(sql, crystalId) > 0;
 }
 
+@Override
 public List<Crystal> viewAllCrystals() {
 
     String sql = """
@@ -96,6 +97,7 @@ public List<Crystal> viewAllCrystals() {
 }
 
 
+    @Override
     public Crystal findCrystalById(int blurbId) {
 
         String sql = """

@@ -6,10 +6,9 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
-import java.util.List;
 
 @Repository
-public class AppUserJdbcTemplateRepository {
+public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -19,6 +18,7 @@ public class AppUserJdbcTemplateRepository {
 
 
 
+    @Override
     public AppUser findByUsername(String username) {
 
         String sql = """
@@ -33,6 +33,7 @@ public class AppUserJdbcTemplateRepository {
     }
 
 
+    @Override
     public AppUser findByAppUserId(int appUserId) {
         String sql = """
                 select
@@ -46,6 +47,7 @@ public class AppUserJdbcTemplateRepository {
     }
 
 
+    @Override
     public AppUser addAppUser(AppUser appUser) {
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("app_user")

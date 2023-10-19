@@ -107,7 +107,7 @@ create models and their fields, getters, setters, and hashcode for:
 
 ### fill out data layer ### 
 
-[EST: 4 HRS MAX] [actual?: ]
+[EST: 4 HRS MAX] [actual?: 4hrs n change ]
 
 *these first two will take the longest part of my time*
 
@@ -118,10 +118,10 @@ create models and their fields, getters, setters, and hashcode for:
     - blurbs mapper
     - appUser mapper
 
-- once methods is thought of and finalized write them in jdbc repositories (but i will write the sql statements in workbench first to make sure they actually work) 
+- once methods is thought of and finalized write them in jdbc repositories (but i will write the sql statements in workbench first to make sure they actually work) [2 HRS]
 
 
-- once repositories and mappers are complete refactor jdbc repsitories into interfaces 
+- once repositories and mappers are complete refactor jdbc repsitories into interfaces [3 mins]
 
 ================================
 

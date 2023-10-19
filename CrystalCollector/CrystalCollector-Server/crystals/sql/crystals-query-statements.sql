@@ -18,6 +18,8 @@ insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes
     (1, 'Amethyst', 'purple', '1', 'oblong', 'have had this one for a long while!', 
     1, 1, 'fakeurl.com/image1', 2, 1),
     (2, 'Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
+    1, 1, 'fakeurl.com/image2', 2, 1),
+    (3, 'Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
     1, 1, 'fakeurl.com/image2', 2, 1);
     
 select
@@ -51,3 +53,6 @@ where crystal_id = 1 AND app_user_id = 1;
 
 select * from crystal
 where app_user_id = 1;
+
+  delete from crystal
+where crystal_id = 2 AND app_user_id = 1;
