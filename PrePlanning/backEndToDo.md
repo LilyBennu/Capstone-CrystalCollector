@@ -187,6 +187,9 @@ APPUSER
 *thiiinkkiiinngggg*
 
 ### APPUSER TESTS ### [TIME?: ]
+[45 mins alone on non stop errors related to @SpringConfiguration
+not being found, sql known good state order errors, literal wastes
+of tiiiiiiiiiime :O]
 
 shouldFindAppUserByUsername
 shouldNotFindNonExistantUsername
