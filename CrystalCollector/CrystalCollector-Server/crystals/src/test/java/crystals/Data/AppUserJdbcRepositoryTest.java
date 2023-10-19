@@ -32,7 +32,7 @@ public class AppUserJdbcRepositoryTest {
     }
 
     @Test
-    void shouldNotFindNonExistantUsername() {
+    void shouldNotFindNonExistentUsername() {
 
         AppUser userNotFound = repository.findByUsername("Lily");
 

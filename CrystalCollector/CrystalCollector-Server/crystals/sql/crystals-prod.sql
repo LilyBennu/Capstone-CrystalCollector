@@ -2,18 +2,7 @@ drop database if exists crystals;
 create database crystals;
 use crystals;
 
-create table crystal_specification (
-	crystal_specification_id int primary key auto_increment,
-    crystal_type varchar(50) not null
-);
 
-INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
-(1, 'REGULAR'),
-(2, 'SPECIAL'),
-(3, 'ORGONITE'),
-(4, 'METAL'),
-(5, 'NONSTONE'),
-(6, 'JEWLRY');
 
 create table app_user (
     app_user_id int primary key auto_increment,
@@ -39,6 +28,19 @@ create table crystal (
     foreign key (crystal_specification_id) references crystal_specification(crystal_specification_id),
     foreign key (app_user_id) references app_user(app_user_id)
 );
+
+create table crystal_specification (
+	crystal_specification_id int primary key auto_increment,
+    crystal_type varchar(50) not null
+);
+
+INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
+(1, 'REGULAR'),
+(2, 'SPECIAL'),
+(3, 'ORGONITE'),
+(4, 'METAL'),
+(5, 'NONSTONE'),
+(6, 'JEWLRY');
 
 
 create table blurbs (

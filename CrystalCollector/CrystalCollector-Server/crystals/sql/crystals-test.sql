@@ -2,19 +2,25 @@ drop database if exists crystals_test;
 create database crystals_test;
 use crystals_test;
 
-create table crystal_specification (
-	crystal_specification_id int primary key auto_increment,
-    crystal_type varchar(50) not null
-);
-
-
-
 create table app_user (
     app_user_id int primary key auto_increment,
     username varchar(50) not null unique,
     password_hash varchar(2048) not null,
     enabled bit not null default(1)
 );
+
+create table crystal_specification (
+	crystal_specification_id int primary key auto_increment,
+    crystal_type varchar(50) not null
+);
+
+  INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
+		(1, 'REGULAR'),
+		(2, 'SPECIAL'),
+		(3, 'ORGONITE'),
+		(4, 'METAL'),
+		(5, 'NONSTONE'),
+		(6, 'JEWLRY');
 
 
 create table crystal (
@@ -34,7 +40,6 @@ create table crystal (
     foreign key (app_user_id) references app_user(app_user_id)
 );
 
-
 create table blurbs (
 	blurbs_id int primary key auto_increment,
     title varchar(250) not null,
@@ -48,30 +53,28 @@ delimiter //
 create procedure set_known_good_state()
 begin 
 
+
+	delete from blurbs;
+	alter table blurbs auto_increment = 1;
+    delete from crystal;
+	alter table crystal auto_increment = 1;
 	delete from crystal_specification;
 	alter table crystal_specification auto_increment = 1;
+    delete from app_user;
+	alter table app_user auto_increment = 1;
     
-    INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
+    insert into app_user (app_user_id, username, password_hash, enabled)
+	values 
+    (1, 'TestLily', 'password_hash1', 1),
+    (2, 'TestYlil', 'password_hash2', 1);
+    
+      INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
 		(1, 'REGULAR'),
 		(2, 'SPECIAL'),
 		(3, 'ORGONITE'),
 		(4, 'METAL'),
 		(5, 'NONSTONE'),
 		(6, 'JEWLRY');
-    
-	delete from app_user;
-	alter table app_user auto_increment = 1;
-	delete from crystal;
-	alter table crystal auto_increment = 1;
-	delete from blurbs;
-	alter table blurbs auto_increment = 1; 
-    
-
-    
-    insert into app_user (app_user_id, username, password_hash, enabled)
-	values 
-    (1, 'TestLily', 'password_hash1', 1),
-    (2, 'TestYlil', 'password_hash2', 1);
     
 
 insert into blurbs (blurbs_id, title, text_body, image_url, app_user_id)
@@ -92,7 +95,6 @@ insert into crystal (crystal_id, crystal_name, color, amount_owned, shape, notes
     (3, 'DeleteCopyTest2Selenite', 'white', '1', 'triangle', 'has image of papa ra eye carved into it', 
     1, 1, 'fakeurl.com/image2', 2, 1);
     
-   
     
     
     end //
