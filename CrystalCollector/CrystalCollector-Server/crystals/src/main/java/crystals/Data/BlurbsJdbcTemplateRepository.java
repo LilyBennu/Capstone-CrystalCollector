@@ -74,7 +74,7 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
     @Override
     public List<Blurbs> findAllBlurbs(int appUserId) {
 
-        String sql = "select * from blurbs where app_user_id = ?;";
+        String sql = "select blurbs_id, title, text_body, image_url, app_user_id from blurbs where app_user_id = ?;";
 
         return jdbcTemplate.query(sql, new BlurbsMapper(), appUserId);
     }

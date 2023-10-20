@@ -48,7 +48,7 @@ public class CrystalJdbcTemplateRepository implements CrystalRepository {
 
         return crystal;
     }
-//    - updateCrystal
+
     @Override
     public boolean updateCrystal(Crystal crystal) {
         String sql = """
@@ -92,12 +92,15 @@ public boolean removeCrystalById(int crystalId) {
 
 @Override
 public List<Crystal> viewAllCrystals(int appUserId) {
-// TODO: replace asterik with all column names
+
     String sql = """
-                select * from crystal
-                inner join crystal_specification on crystal.crystal_specification_id = crystal_specification.crystal_specification_id
-                where app_user_id = ?;
-                """;
+            select
+                c.crystal_id, c.crystal_name, c.color, c.amount_owned, c.shape, c.notes, c.raw, c.in_collection,\s
+                   c.image_url, c.crystal_specification_id, c.app_user_id, cs.crystal_type      
+            from crystal c
+            inner join crystal_specification cs on c.crystal_specification_id = cs.crystal_specification_id
+            where app_user_id = ?;
+            """;
     return jdbcTemplate.query(sql, new CrystalMapper(), appUserId);
 }
 
@@ -106,8 +109,11 @@ public List<Crystal> viewAllCrystals(int appUserId) {
     public Crystal findCrystalById(int crystalId) {
 
         String sql = """
-                select * from crystal
-                inner join crystal_specification on crystal.crystal_specification_id = crystal_specification.crystal_specification_id
+                select
+                    c.crystal_id, c.crystal_name, c.color, c.amount_owned, c.shape, c.notes, c.raw, c.in_collection,\s
+                       c.image_url, c.crystal_specification_id, c.app_user_id, cs.crystal_type
+                from crystal c
+                inner join crystal_specification cs on c.crystal_specification_id = cs.crystal_specification_id
                 where crystal_id = ?;
                 """;
         return jdbcTemplate.query(sql, new CrystalMapper(), crystalId).stream().findFirst().orElse(null);

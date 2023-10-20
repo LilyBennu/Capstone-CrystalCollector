@@ -45,6 +45,8 @@ select
 from blurbs
 where blurbs_id = 1 AND app_user_id = 1; 
 
+select * from blurbs where app_user_id = 1;
+
 delete from blurbs
 where blurbs_id = 7 AND app_user_id = 2;
 
