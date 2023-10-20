@@ -321,7 +321,7 @@ shouldNotFindCrystalWitoutAppUserId
 
 [EST: 4 HRS MAX] [actual?: ]
 
-*domain testing is usually nicer to me than data testing , sho hopefully this goes way smooth*
+*domain testing is usually nicer to me than data testing , so hopefully this goes way smooth*
 
 - make testing classes for models
 - think up and write test methods for each class
@@ -415,17 +415,29 @@ shouldNotFindCrystalWitoutAppUserId
 ### Back end questions for Esin ### 
 
 - do what for the user login haaaaaaah?
+
 - is it possible to add null statment for boolean validating?
 - should i be validating anything else for blurbs and crystals
-- do i really gotta test all these tests i made lmao 
+
+- do i really gotta test all these tests i made lmao [yes]
+
 - for controllers/ paths how should i set things up so the paths or  login is connected to user always? is it by 
-      ###  ("/appUserId/crystals/blah)???
+      ###  ("/appUserId/crystals/blah)??? noooo easier to hack
+      user info in token with authprincipal
 
 - for the antMatchers for security I have to make one for every method that has a path essentially?
+- yep petmitAll and authenticated decided what pages need to authenticated and what are permit all
 
  - ### Notes ### - 
+ - authentication principle to grab user assoicated with token
+    
 
-    - 
+    ### example ###
+    - public Result<Crystal> add(@RequestBody Crystal crystal, @AuthenticationPrinciple AppUser user) {
+    crystal.setAppUserId(user.getAppUserId); 
+    Result<Crystal> result = service.add(crystal); 
+    // etc. ... 
+}
 =====================================================================
 
 ### Weekend To Do ### 

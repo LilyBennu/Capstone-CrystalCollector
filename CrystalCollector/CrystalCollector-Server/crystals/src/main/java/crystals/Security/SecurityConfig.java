@@ -46,6 +46,7 @@ public class SecurityConfig {
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()
+                //.addFilter(new //jwt filter)
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

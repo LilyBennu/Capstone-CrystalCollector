@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 //
 //                    // Update the "principal" from the username to `user`
 //                    UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-//                            user, null, user.getAuthorities());
+//                            AppUser, null, user.getAuthorities());
 //
 //                    SecurityContextHolder.getContext().setAuthentication(token);
 //                }
