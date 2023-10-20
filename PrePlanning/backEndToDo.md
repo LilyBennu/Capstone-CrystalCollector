@@ -161,11 +161,12 @@ APPUSER
 
 ================================
 
-### DATA TESTING ### 
+### DATA TESTING ### [DONE]
 
 *looooord please be nice to me tests criessss* 
 
-[4 HRS MAX PLS] [actual?: ] 
+[4 HRS MAX PLS] [actual?:7 HRS TOTAL ] 
+*testing whooped my aaaaahhh but at least its done now!*
 
 - in SQL make/ finish testing schema tab [*]
 - in intelli j make data test package and classes per model [*]
@@ -232,7 +233,7 @@ shouldFindCrystalById
 shouldNotFindNonExistentCrystal
 shouldNotFindCrystalWitoutAppUserId
 
-===============================
+=====================================================================
 
 ### do security ### 
 
@@ -244,9 +245,9 @@ shouldNotFindCrystalWitoutAppUserId
 - is not very complicated but just still really unfamiliar 
 - hopefully doesn't take me long and i can test security immediately when done *Esin said no need to test security, but make sure user is working*
 
-===============================
+=====================================================================
 
-### test security #### NO MAS
+### test security #### NO MAS [OMITTED]
 
 [EST: 2 HRS] [actual?: ]
 
@@ -256,13 +257,14 @@ shouldNotFindCrystalWitoutAppUserId
 - pass da tests 
 - hopefully no crying lol
 
-=============================
+====================================================================
 
- *with everything done above this data layer will be complete yay* 
+ *with everything done above this data layer will be complete yay*
+
  - things will be subject to change though if what I research about uploading photos for users needs to alter these existing plans already
 
 
-=========================== 
+=====================================================================
 
 ### DOMAIN ### 
 
@@ -275,7 +277,7 @@ shouldNotFindCrystalWitoutAppUserId
 - go service by service making rules per model and validate them in the validate method 
 - uh oh duh populate the Result class as well
 
-=================================
+=====================================================================
 
 ### test the domain ###
 
@@ -289,14 +291,15 @@ shouldNotFindCrystalWitoutAppUserId
 - pass da tests 
 - hopefully no crying here either lol
 
-==============================
+====================================================================
 
 ### area for domain testing method ideas ### 
 
 *thiiiiiiiiiiiink*
+*remeber what Esin said, focus on testing validations not necessarily passthrough methods*
 
 
-=========================
+=====================================================================
 
 ### make controllers! ###
 
@@ -314,13 +317,13 @@ shouldNotFindCrystalWitoutAppUserId
 - test the http requests in vs code they all need to work
 - test happy and unhappy paths
 
-================================
+=====================================================================
 
 ### controller paths notes and thoughts ### 
 
 *this is important because the paths need to be per user for most of the CRUD functions/ for login, need to write that correctly*
 
-============================== 
+=====================================================================
 
 *once all this done back end is complete yaaaaaaaaay*
 

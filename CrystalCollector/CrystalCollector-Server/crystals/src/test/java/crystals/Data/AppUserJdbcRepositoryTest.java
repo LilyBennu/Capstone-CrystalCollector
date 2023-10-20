@@ -9,7 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 public class AppUserJdbcRepositoryTest {
 
     static final int MISSING_ID = 100;

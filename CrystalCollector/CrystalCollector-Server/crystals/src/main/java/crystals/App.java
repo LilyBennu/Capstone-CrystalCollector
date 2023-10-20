@@ -12,7 +12,7 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 
-    @Bean
+
     public WebMvcConfigurer corsConfigurer() {
 
         // Configure CORS globally versus
