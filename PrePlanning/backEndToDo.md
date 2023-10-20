@@ -304,13 +304,13 @@ shouldNotFindCrystalWitoutAppUserId
 
 =====================================================================
 
-### DOMAIN ### 
+### DOMAIN ### [DONE]
 
-[EST: 2 HRS MAX] [actual?: ]
+[EST: 2 HRS MAX] [actual?: 3 HRS]
 
 - make service classes for all models 
-    - crystals/ crystal specification [25 mins] + []
-    - blurbs [25 mins] + []
+    - crystals/ crystal specification [25 mins] + [1 HR for validations]
+    - blurbs [25 mins] + [1 hour for validations]
     - users 
 - go service by service making rules per model and validate them in the validate method 
 - uh oh duh populate the Result class as well
@@ -331,10 +331,51 @@ shouldNotFindCrystalWitoutAppUserId
 
 ====================================================================
 
-### area for domain testing method ideas ### 
+### area for domain testing method ideas ### [DONE]
+[EST:30 mins] [actual?: 30 mins ]
 
 *thiiiiiiiiiiiink*
 *remeber what Esin said, focus on testing validations not necessarily passthrough methods*
+
+### Blurb Service TESTS ###
+
+- shouldOnlyShowBlurbsForUser
+- shouldntAllowNullTitle
+- shouldntAllowNullTextBody
+- shouldntAllowOverMaxCharTitle
+- shouldntAllowOverMaxCharTextBody
+- shouldntAllowOverMaxCharImgUrl
+- shouldBeTiedToUser
+
+- test for making sure appUserId connect to everything?
+
+
+### Crystal Service TESTS ### 
+- *why did make so many fields for crystal criesss* 
+- shouldntAllowNullCrystalName
+- shouldntAllowCrystalNameOverMaxChars
+- shouldntAllowNullColor
+- shouldntAllowColorOverMaxChars
+- shouldntAllowEmptyAmountOwned
+- shouldAllowZeroAmountOwned 
+- shouldntAllowNullShape
+- shouldntAllowShapeOverMaxChars
+- shouldAllowNullNotes 
+- shouldntAllowNotesOverMaxChars
+- shouldAllowNullImgUrl
+- shouldntAllowImgUrlOverMaxChars
+- shouldntAllowNullCrystalSpecType
+- shouldBeTiedToUser
+
+- how to test booleans???
+
+
+
+### App User Service TESTS (will be done in security) ###
+
+- is there where i do testing to make sure user is logged in so that everything is tied to appUserId??
+
+
 
 
 =====================================================================
@@ -351,7 +392,7 @@ shouldNotFindCrystalWitoutAppUserId
     - blurbs
     - users (AuthController)
 
-- make http test file in vs code 
+- ### make http test file in vs code 
 - test the http requests in vs code they all need to work
 - test happy and unhappy paths
 
@@ -368,4 +409,35 @@ shouldNotFindCrystalWitoutAppUserId
 *in reality i only want to do three days MAX on back end, security and testing are my weak points right now but even then oh well lol. this really should not take me that long, some of these time estimates are generous but yeah should have back end done to boot and thursday or friday i should start on front end*
 
 
-- celebrate and have a snack lol
+- celebrate and have a snack lol 
+=====================================================================
+
+### Back end questions for Esin ### 
+
+- do what for the user login haaaaaaah?
+- is it possible to add null statment for boolean validating?
+- should i be validating anything else for blurbs and crystals
+- do i really gotta test all these tests i made lmao 
+- for controllers/ paths how should i set things up so the paths or  login is connected to user always? is it by 
+      ###  ("/appUserId/crystals/blah)???
+
+- for the antMatchers for security I have to make one for every method that has a path essentially?
+
+ - ### Notes ### - 
+
+    - 
+=====================================================================
+
+### Weekend To Do ### 
+
+- research and start implementation for AWS S3 for photo upload
+
+- implement as much as possible back end security (come and right here whatever questions you have for monday) (maybe ask Brian for help since he volunteered himself lol)
+
+- add all necessary components and code for front end React Security, go through lessons for help
+
+- what needs to be done/ can be done for front end?
+
+- npm init/ install everything
+- flesh out front end to if anything is vague
+- add time estimates to front end

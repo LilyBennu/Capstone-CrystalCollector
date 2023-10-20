@@ -10,11 +10,17 @@ import java.util.Objects;
 
 public class Result<T> {
 
-    private T payload;
-    private ArrayList<String> messages = new ArrayList<>();
+    private final ArrayList<String> messages = new ArrayList<>();
+    private ResultType type = ResultType.SUCCESS;
 
-    public void addMessage(String message) {
-        messages.add(message);
+    private T payload;
+
+    public ResultType getType() {
+        return type;
+    }
+
+    public boolean isSuccess() {
+        return type == ResultType.SUCCESS;
     }
 
     public T getPayload() {
@@ -29,28 +35,9 @@ public class Result<T> {
         return new ArrayList<>(messages);
     }
 
-    public boolean isSuccess() {
-        return messages.isEmpty();
+    public void addMessage(String message, ResultType type) {
+        messages.add(message);
+        this.type = type;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Result<?> result = (Result<?>) o;
-        return Objects.equals(payload, result.payload) && Objects.equals(messages, result.messages);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(payload, messages);
-    }
-
-    @Override
-    public String toString() {
-        return "Result{" +
-                "payload=" + payload +
-                ", messages=" + messages +
-                '}';
-    }
 }
