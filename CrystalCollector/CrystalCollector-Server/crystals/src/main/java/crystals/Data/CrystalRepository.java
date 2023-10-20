@@ -1,5 +1,7 @@
 package crystals.Data;
 
+import crystals.Models.Crystal;
+
 import java.util.List;
 
 public interface CrystalRepository {
@@ -12,5 +14,5 @@ public interface CrystalRepository {
 
     List<crystals.Models.Crystal> viewAllCrystals(int appUserId);
 
-    crystals.Models.Crystal findCrystalById(int blurbId);
+    crystals.Models.Crystal findCrystalById(int crystalId);
 }

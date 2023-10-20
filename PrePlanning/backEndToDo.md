@@ -309,8 +309,8 @@ shouldNotFindCrystalWitoutAppUserId
 [EST: 2 HRS MAX] [actual?: ]
 
 - make service classes for all models 
-    - crystals/ crystal specification 
-    - blurbs
+    - crystals/ crystal specification [25 mins] + []
+    - blurbs [25 mins] + []
     - users 
 - go service by service making rules per model and validate them in the validate method 
 - uh oh duh populate the Result class as well
