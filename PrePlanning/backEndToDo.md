@@ -241,8 +241,46 @@ shouldNotFindCrystalWitoutAppUserId
 
 *this might take me longer than i like because i am kinda iffy on security tbh*
 
-- use existing examples to fill in these classes high key!!! 
-- is not very complicated but just still really unfamiliar 
+- use existing examples to fill in these classes high key!!! [45 mins]
+- is not very complicated but just still really unfamiliar [lies]
+
+- ### reconfigure AuthController class 
+    - make sure to add refresh_token path 
+    - import appUser class
+    - think i need to change all instances of "username" to appUsername
+    - everyone is authorized on site because only users exist no admin
+    - add endpoint to add users (controller tings look at lesson for example) aaaah pooh i need to make a sign up component and sign in component for front end
+
+- ### reconfigure AppUserService class 
+    - no admins needed
+    - import appUser class
+    -  change instances of "username" to *appUserName*
+    - add AppUserRepository to this class (check lesson if you get confused)
+    - check lesson for service class example and see what should be added to my class, what is necessary for my project?
+    - wait until database lesson is done then might have to come back to this class
+
+- ### reconfigure SecurityConfig class 
+    - update all them antMatchers for sure
+    - high key everything is just permitAll() 
+    - does http.csrf().disable(); need to be enabled eventually?
+    - unComment JWT Converter
+    - update antMatchers for create-account path
+
+- ### reconfigure JWTConverter class
+    - update "username"  to *appUserName*
+    - import appUser class 
+    - aaah the authorities stuff need to be taken out and roles
+
+- ### AppConfig
+    - think this is fine how it is now
+    - do i take everything out the App class now?
+
+- ### AppUser 
+    - of those overide methods do i need to change them?
+
+- ### AppUserMapper 
+    - if i'm not using roles do i have to add sql exception and all that other stuff to the mapper?
+
 - hopefully doesn't take me long and i can test security immediately when done *Esin said no need to test security, but make sure user is working*
 
 =====================================================================

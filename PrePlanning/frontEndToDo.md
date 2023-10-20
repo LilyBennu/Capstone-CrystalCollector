@@ -21,6 +21,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
     - crystal list/ table
     - haaaaah?
     - is Nav in component folder lol?
+    - sign in component
+    - sign up component
 - make folders for pages 
     - login page
     - welcome page/ 
@@ -78,9 +80,15 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ### make pages and components!!!
 
+*many of these components will be connected to endpoints/ paths in controller, need to think about that!!!!!*
+
 ### login/ sign up page ### 
 - sign in button 
 - sign up button 
+
+### sign in component/ form ###
+
+### sign up component/ form ###
 
 ### crystal list/ table component ### ????
 - shows crystals on crystal collection page 
