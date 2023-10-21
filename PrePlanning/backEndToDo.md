@@ -317,9 +317,9 @@ shouldNotFindCrystalWitoutAppUserId
 
 =====================================================================
 
-### test the domain ###
+### test the domain ### [KINDA-DONE]
 
-[EST: 4 HRS MAX] [actual?: ]
+[EST: 4 HRS MAX] [actual?: 4HRS ] (will need to troubleshoot null tests with Esin porque estoy sufrendo)
 
 *domain testing is usually nicer to me than data testing , so hopefully this goes way smooth*
 
@@ -453,3 +453,11 @@ shouldNotFindCrystalWitoutAppUserId
 - npm init/ install everything
 - flesh out front end to if anything is vague
 - add time estimates to front end
+
+====================================================================
+
+### over the weekend questions ###
+
+- tests keep failing becauase the fields can't be null but that is the whole point of the test
+    CrystalServiceTest
+        - shouldNotAddNullCrystal
