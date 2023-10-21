@@ -84,7 +84,7 @@ import java.util.List;
                 result.addMessage("Please enter Crystal name", ResultType.INVALID);
             }
             if (crystal.getCrystalName().length() > 50) {
-                result.addMessage("Crystal name cannot exceed 250 characters", ResultType.INVALID);
+                result.addMessage("Crystal name cannot exceed 50 characters", ResultType.INVALID);
             }
             if (crystal.getColor() == null) {
                 result.addMessage("Please enter Crystal color", ResultType.INVALID);

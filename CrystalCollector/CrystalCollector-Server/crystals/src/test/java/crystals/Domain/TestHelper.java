@@ -24,7 +24,7 @@ public class TestHelper {
         return blurb;
     }
 
-    public static Crystal makeCrystal(Crystal crystal) {
+    public static Crystal makeCrystal() {
         Crystal crystal1 = new Crystal();
 
         crystal1.setCrystalId(1);
