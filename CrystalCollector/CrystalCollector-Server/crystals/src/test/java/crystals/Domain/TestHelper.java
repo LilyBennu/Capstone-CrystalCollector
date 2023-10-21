@@ -1,26 +1,21 @@
 package crystals.Domain;
 
-import crystals.Domain.Result;
-import crystals.Domain.BlurbService;
-import crystals.Domain.CrystalService;
 import crystals.Models.Crystal;
 import crystals.Models.CrystalSpecification;
 import crystals.Models.Blurbs;
-import crystals.Models.AppUser;
-import crystals.Domain.Result;
 
 
 public class TestHelper {
 
 
 
-    public static Blurbs makeBlurb(Blurbs blurbs) {
+    public static Blurbs makeBlurb() {
         Blurbs blurb = new Blurbs();
         blurb.setTitle("Test Title");
         blurb.setTextBody("Test Text words words words");
         blurb.setImageUrl("example.com/testImgUrl");
         blurb.setAppUserId(5);
-        blurb.setBlurbsId(1);
+        blurb.setBlurbsId(0);
         return blurb;
     }
 

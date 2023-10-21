@@ -1,7 +1,5 @@
 package crystals.Domain;
 
-import crystals.Domain.Result;
-import crystals.Domain.ResultType;
 import crystals.Data.BlurbsRepository;
 import crystals.Models.Blurbs;
 import org.springframework.stereotype.Service;
@@ -9,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-    public class BlurbService {
+    public class BlurbsService {
 
         private final BlurbsRepository blurbsRepository;
 
-        public BlurbService(BlurbsRepository blurbsRepository) {
+        public BlurbsService(BlurbsRepository blurbsRepository) {
             this.blurbsRepository = blurbsRepository;
         }
 
