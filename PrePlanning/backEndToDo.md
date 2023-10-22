@@ -446,12 +446,14 @@ shouldNotFindCrystalWitoutAppUserId
 - research and start implementation for AWS S3 for photo upload
 
 - implement as much as possible back end security (come and right here whatever questions you have for monday) (maybe ask Brian for help since he volunteered himself lol)
+    - add user role and other table to sql
+    - go on ahead and implement security as it is that is the lazy programmer way to do it mawhahah
 
 - add all necessary components and code for front end React Security, go through lessons for help
 
 - what needs to be done/ can be done for front end?
 
-- npm init/ install everything
+- npm init/ install everything (npx create react app/ bootstraps/ route/ jwt-decode)
 - flesh out front end to if anything is vague
 - add time estimates to front end
 
