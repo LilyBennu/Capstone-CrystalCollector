@@ -4,6 +4,11 @@ insert into app_user (app_user_id, username, password_hash, enabled)
 	values 
     (1, 'Lily', 'password_hash1', 1),
     (2, 'Ylil', 'password_hash2', 1);
+    
+insert into app_user_role (app_user_id, app_role_id)
+	values
+    (1, 1),
+    (2, 1);
 
 insert into blurbs (blurbs_id, title, text_body, image_url, app_user_id)
 	values 

@@ -11,6 +11,40 @@ create table app_user (
     enabled bit not null default(1)
 );
 
+create table app_role (
+    app_role_id int primary key auto_increment,
+    app_role_specification varchar(50) not null unique
+);
+
+insert into app_role (app_role_specification) values
+    ('USER');
+    
+create table app_user_role (
+    app_user_id int not null,
+    app_role_id int not null,
+    constraint pk_app_user_role
+        primary key (app_user_id, app_role_id),
+    constraint fk_app_user_role_user_id
+        foreign key (app_user_id)
+        references app_user(app_user_id),
+    constraint fk_app_user_role_role_id
+        foreign key (app_role_id)
+        references app_role(app_role_id)
+);
+
+
+create table crystal_specification (
+	crystal_specification_id int primary key auto_increment,
+    crystal_type varchar(50) not null
+);
+
+INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
+(1, 'REGULAR'),
+(2, 'SPECIAL'),
+(3, 'ORGONITE'),
+(4, 'METAL'),
+(5, 'NONSTONE'),
+(6, 'JEWLRY');
 
 create table crystal (
 	crystal_id int primary key auto_increment,
@@ -29,18 +63,7 @@ create table crystal (
     foreign key (app_user_id) references app_user(app_user_id)
 );
 
-create table crystal_specification (
-	crystal_specification_id int primary key auto_increment,
-    crystal_type varchar(50) not null
-);
 
-INSERT INTO crystal_specification (crystal_specification_id, crystal_type) VALUES
-(1, 'REGULAR'),
-(2, 'SPECIAL'),
-(3, 'ORGONITE'),
-(4, 'METAL'),
-(5, 'NONSTONE'),
-(6, 'JEWLRY');
 
 
 create table blurbs (

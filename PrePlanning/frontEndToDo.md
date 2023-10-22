@@ -2,7 +2,7 @@
 
 ============================== 
 
-npm init 
+npm init [DONE]
 npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ================================ 
@@ -37,10 +37,12 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
     - aaaaaaw yeah lets get cute 
 - make NavBar component
 - in App js make code for Route
+- *check board game example for what needs to be added for security and react lesson too*
 
 ================================ 
 
 ### configure App.js ###
+[30 MINS MAX] [actual?: ]
 
 - import everything
 - make da Routes! [MAKE SURE THEY MATCH THE PATHS/ DONT ID/AGENTID YOURSELF AGAIN LMAO] (wrap in AuthContext)
@@ -50,6 +52,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 =================================
 
 ### configure NavBar component ###
+
+[1 HR MAX] [actual?: ]
 
 - import Link and everything else
 - make NavBar
@@ -83,18 +87,26 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 *many of these components will be connected to endpoints/ paths in controller, need to think about that!!!!!*
 
 ### login/ sign up page ### 
+[EST: ] [actual?: ]
+
 - sign in button 
 - sign up button 
 
 ### sign in component/ form ###
+[EST: ] [actual?: ]
 
 ### sign up component/ form ###
+[EST: ] [actual?: ]
 
 ### crystal list/ table component ### ????
+[EST: ] [actual?: ]
+
 - shows crystals on crystal collection page 
 - gotta decide how on the card
 
 ### add crystal form component ### 
+[EST: ] [actual?: ]
+
 - if crystalId > 0 edit *else* add new crystal 
 - have input for all necessary fields 
 - image can either be URL (for instance if it's a crystal not in their collection)
@@ -102,6 +114,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - *once my models is complete with the fields i will come and write more details here*
 
 ### view crystals page ### 
+[EST: ] [actual?: ]
+
 - them cards we been using for everyting 
 - would like them displayed 3 at a time in rows
 - display crystal image, and name, and a button to view crystal maybe edit and delete buttons too
@@ -116,12 +130,16 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
         - sort by color 
 
 ### crystal detail page? (findbyCrystalId) ??? ###
+[EST: ] [actual?: ]
+
 - yeah i think this is necessary
 - this will show all of the crystal information beyonce whats on the card
 - have edit and delete buttons for crystal 
 - have other crystal stats maybe like how many of this crystal in collection, something else maybe 
 
 ### blurbs form component ### 
+[EST: ] [actual?: ]
+
 - see doing this whole to do list is good it is helping my brain brain up ideas correctly 
 - form to handle input for blurbs
 - also needs to be able to handle uploading images for user as well 
@@ -129,6 +147,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - is this where the RTE plugin would go ? (most likely)
 
 ### blurbs page ### 
+[EST: ] [actual?: ]
+
 - ooooooh RTE!!! for text (mini stretch goal) 
 - aaaah *bleep* i need make a blurbs form component
 - add a blurb button 
@@ -137,15 +157,21 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - title => text => image 
 
 ### 404/ not found page ### 
+[EST: ] [actual?: ]
+
 - can i be fancy and have it redirect to home like patrick did?
 - wanna have a cute image or meme
 
 ### error page ### 
+[EST: ] [actual?: ]
+
 - redirect countdown if possible 
 - error message
 - cute meme or image too if possible
 
 ### welcome page ### 
+[EST: ] [actual?: ]
+
 - aaaaaaaaaaaaw eff yeah
 - want to CSS animations into this page 
 - if no csss just have cute intro/ welcome page 
@@ -157,11 +183,15 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
     - if not possible within time just do crystal collection title in middle maybe in a box that is pretty with glitter or something lol
 
 ### about page ### 
+[EST: ] [actual?: ]
+
 - simple enough
 - explain purpose of site, hot to use it a bit and about the site creator cystal queen lily
 - decide on desin later, not pertinent right now
 
 ### contact page
+[EST: ] [actual?: ]
+
 - simple page for now with email and whatever 
 - page not as pertinent to site as others
 
