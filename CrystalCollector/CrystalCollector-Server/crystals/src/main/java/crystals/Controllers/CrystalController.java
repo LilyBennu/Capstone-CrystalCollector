@@ -24,10 +24,70 @@ public class CrystalController {
     }
     // POST PUT DELETE GET
 
-    //    addCrystal(Crystal crystal);
-    //    boolean updateCrystal(Crystal crystal);
-    //    boolean removeCrystalById(int crystalId);
-    //    List<Crystal> viewAllCrystals(int appUserId);
-    //    findCrystalById(int crystalId);
+        //Esin example of AuthPrinciple
+//    public Result<Crystal> add(@RequestBody Crystal crystal, @AuthenticationPrincipal AppUser user) {
+//        crystal.setAppUserId(user.getAppUserId);
+//        Result<Crystal> result = service.add(crystal);
+//        // etc. ...
+//    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Result<Crystal>> addCrystal(@AuthenticationPrincipal AppUser appUser, @RequestBody Crystal crystal) {
+        // connect everything to AppUserId
+        crystal.setAppUserId(appUser.getAppUserId());
+
+        Result<Crystal> crystalResult = crystalService.addCrystal(crystal);
+        if (crystalResult.isSuccess()) {
+            return new ResponseEntity<>(crystalResult, HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>(crystalResult, HttpStatus.BAD_REQUEST);
+    }
+
+        // should i specify these paths or is that gonna make the hackers
+        // get me more easily?????
+    @PutMapping("/update/{crystalId}")
+    public ResponseEntity<Result<Crystal>> updateCrystal(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId, @RequestBody Crystal crystal) {
+        crystal.setAppUserId(appUser.getAppUserId());
+
+        Result<Crystal> crystalResult = crystalService.updateCrystal(crystal);
+        if (crystalResult.isSuccess()) {
+            return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity<>(crystalResult, HttpStatus.BAD_REQUEST);
+    }
+
+
+    @DeleteMapping("/remove/{crystalId}")
+    public ResponseEntity<Result<Void>> removeCrystalById(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId, Crystal crystal) {
+        crystal.setCrystalId(appUser.getAppUserId());
+
+        Result<Void> crystalResult = crystalService.removeCrystalById(crystalId);
+        if (crystalResult.isSuccess()) {
+            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+        }
+        if (!crystalResult.isSuccess()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(crystalResult, HttpStatus.BAD_REQUEST);
+    }
+    
+
+    //    can i do a hypen in the path name????
+    @GetMapping("/crystal-list")
+    public List<Crystal> viewAllCrystals(@AuthenticationPrincipal AppUser appUser, int appUserId, Crystal crystal) {
+        crystal.setAppUserId(appUser.getAppUserId());
+        return crystalService.viewAllCrystals(appUserId);
+    }
+
+
+    @GetMapping("/detail/{crystalId}")
+    public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, int crystalId, Crystal crystal) {
+        crystal.setAppUserId(appUser.getAppUserId());
+        Crystal specificCrystal = crystalService.findCrystalById(crystalId);
+        if (specificCrystal == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return  new ResponseEntity<>(specificCrystal, HttpStatus.OK);
+    }
 
 }
