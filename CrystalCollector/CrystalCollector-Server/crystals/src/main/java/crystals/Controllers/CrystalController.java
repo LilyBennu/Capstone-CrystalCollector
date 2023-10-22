@@ -22,14 +22,13 @@ public class CrystalController {
     public CrystalController(CrystalService crystalService) {
         this.crystalService = crystalService;
     }
-    // POST PUT DELETE GET
 
         //Esin example of AuthPrinciple
 //    public Result<Crystal> add(@RequestBody Crystal crystal, @AuthenticationPrincipal AppUser user) {
 //        crystal.setAppUserId(user.getAppUserId);
 //        Result<Crystal> result = service.add(crystal);
 //        // etc. ...
-//    }
+//    } aaaaw yeah similar to board game
 
     @PostMapping("/add")
     public ResponseEntity<Result<Crystal>> addCrystal(@AuthenticationPrincipal AppUser appUser, @RequestBody Crystal crystal) {
@@ -59,7 +58,7 @@ public class CrystalController {
 
     @DeleteMapping("/remove/{crystalId}")
     public ResponseEntity<Result<Void>> removeCrystalById(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId, Crystal crystal) {
-        crystal.setCrystalId(appUser.getAppUserId());
+        crystal.setAppUserId(appUser.getAppUserId());
 
         Result<Void> crystalResult = crystalService.removeCrystalById(crystalId);
         if (crystalResult.isSuccess()) {
@@ -72,7 +71,7 @@ public class CrystalController {
     }
     
 
-    //    can i do a hypen in the path name????
+    //    can i do a hypen in the path name???? if not do crystals/list
     @GetMapping("/crystal-list")
     public List<Crystal> viewAllCrystals(@AuthenticationPrincipal AppUser appUser, int appUserId, Crystal crystal) {
         crystal.setAppUserId(appUser.getAppUserId());
@@ -83,6 +82,7 @@ public class CrystalController {
     @GetMapping("/detail/{crystalId}")
     public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, int crystalId, Crystal crystal) {
         crystal.setAppUserId(appUser.getAppUserId());
+
         Crystal specificCrystal = crystalService.findCrystalById(crystalId);
         if (specificCrystal == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

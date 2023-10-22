@@ -380,7 +380,7 @@ shouldNotFindCrystalWitoutAppUserId
 
 =====================================================================
 
-### make controllers! ###
+### make controllers! ### 
 
 [EST: 1-2 HR MAX] [actul?: ]
 
@@ -388,11 +388,12 @@ shouldNotFindCrystalWitoutAppUserId
 
 - 1st make official path for all controllers ("/crystals/user_id/????")
 - make all mapgetter methods for:
-    - crystals
-    - blurbs
+    - crystals [1.5 HRS] [DONE]
+    - blurbs [30 mins] [DONE]
     - users (AuthController)
 
 - ### make http test file in vs code 
+- *NOT SURE I CANT TEST THESE WITHOUT SECURITY BEING DONE*
 - test the http requests in vs code they all need to work
 - test happy and unhappy paths
 
@@ -401,7 +402,7 @@ shouldNotFindCrystalWitoutAppUserId
 ### controller paths notes and thoughts ### 
 
 *this is important because the paths need to be per user for most of the CRUD functions/ for login, need to write that correctly*
-
+ - i was getting getting mapping paths confused with Route Paths lol
 =====================================================================
 
 *once all this done back end is complete yaaaaaaaaay*
