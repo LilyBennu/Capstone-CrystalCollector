@@ -48,7 +48,7 @@ public class BlurbsController {
 
 
     @DeleteMapping("/blurbs/delete/{blurbsId}")
-    public ResponseEntity<Result<Void>> deleteBlurbById(@AuthenticationPrincipal AppUser appUser, int blurbsId, Blurbs blurbs) {
+    public ResponseEntity<Result<Void>> deleteBlurbById(@AuthenticationPrincipal AppUser appUser, @PathVariable int blurbsId, Blurbs blurbs) {
         blurbs.setAppUserId(appUser.getAppUserId());
 
         Result<Void> blurbsResult = blurbsService.deleteBlurbById(blurbsId);
@@ -70,9 +70,8 @@ public class BlurbsController {
     }
 
 
-    //    findBlurbById(int blurbId);
-    @GetMapping
-    public ResponseEntity<Blurbs> findBlurbById(@AuthenticationPrincipal AppUser appUser, Blurbs blurbs, int blurbsId) {
+    @GetMapping("/blurbs/detail/{blurbsId}")
+    public ResponseEntity<Blurbs> findBlurbById(@AuthenticationPrincipal AppUser appUser, Blurbs blurbs, @PathVariable int blurbsId) {
         blurbs.setAppUserId(appUser.getAppUserId());
 
         Blurbs specificBlurb = blurbsService.findBlurbById(blurbsId);

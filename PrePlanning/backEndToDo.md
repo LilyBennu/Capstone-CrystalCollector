@@ -285,15 +285,63 @@ shouldNotFindCrystalWitoutAppUserId
 
 =====================================================================
 
-### test security #### NO MAS [OMITTED]
+### Finish SecurityConfig Class paths #### 
 
-[EST: 2 HRS] [actual?: ]
+[EST: 30 mins] [actual?: ]
 
-- make class for security tests
-- look at other tests and think of tests i need to make for my project if any of the example tests don't fit my needs 
-- make da tests 
-- pass da tests 
-- hopefully no crying lol
+### AuthController Paths
+
+@PostMapping("/crystals/sign-in")
+@PostMapping("/crystals/sign-up")
+@PostMapping("/crystals/refresh-token")
+
+### CrystalController Paths
+@RequestMapping("/crystals")
+@GetMapping("/list")
+@GetMapping("/detail/{crystalId}")
+@PostMapping("/add")
+@PutMapping("/update/{crystalId}")
+@DeleteMapping("/remove/{crystalId}")
+
+
+### BlurbsController Paths
+@RequestMapping("/crystals")
+@GetMapping("/blurbs/list")
+@GetMapping("/blurbs/detail/{blurbsId}")
+@PostMapping("/blurbs/add")
+@PutMapping("/blurbs/update/{blurbsId}")
+@DeleteMapping("/blurbs/delete/{blurbsId}")
+
+=================================================================
+
+### antMatcher Examples ### 
+
+// bugs
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/refresh_token").authenticated() // token refresh
+                .antMatchers(HttpMethod.GET, "/order").permitAll()
+                .antMatchers(HttpMethod.GET, "/sighting", "/sighting/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/sighting").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT, "/sighting/*").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/sighting/*").hasAnyAuthority("ADMIN")
+
+
+// boardgame 
+                .antMatchers(HttpMethod.POST, "/api/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/refresh-token").authenticated()
+                .antMatchers(HttpMethod.GET, "/api/game", "/api/game/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/game").authenticated()
+                .antMatchers(HttpMethod.PUT, "/api/game/*").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/api/game/*").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/category").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/category").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/category/*").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/category/*").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/availability").permitAll()
+
+
+
 
 ====================================================================
 
@@ -382,9 +430,9 @@ shouldNotFindCrystalWitoutAppUserId
 
 =====================================================================
 
-### make controllers! ### 
+### make controllers! ### [DONE]
 
-[EST: 1-2 HR MAX] [actul?: ]
+[EST: 1-2 HR MAX] [actul?: 2 hr 10 mins ] 
 
 *now this will require some braining because these paths will be connecting back end to front end so i need to do them correctly*
 
@@ -392,7 +440,7 @@ shouldNotFindCrystalWitoutAppUserId
 - make all mapgetter methods for:
     - crystals [1.5 HRS] [DONE]
     - blurbs [30 mins] [DONE]
-    - users (AuthController)
+    - users (AuthController) [10 mins]
 
 - ### make http test file in vs code 
 - *NOT SURE I CANT TEST THESE WITHOUT SECURITY BEING DONE*
@@ -471,6 +519,7 @@ shouldNotFindCrystalWitoutAppUserId
 - question for JWTConverter -getUserFromToken method differences
 - should http.crsf().disabled(); in SecurityConfig be enabled
 - can i just move what's in appConfig into App?
+- in AuthControler wher is this username and password coming from?
 
 
 =====================================================================
@@ -478,7 +527,7 @@ shouldNotFindCrystalWitoutAppUserId
 ### MONDAY TO DOOOO ### 
 
 - write antMatchers paths in correct order for SecurityConfig Class
-- complete AuthController
+- complete AuthController [DONE]
 - how can now broken user tests be fixed?
 
 - make http requests for all backend mappings 

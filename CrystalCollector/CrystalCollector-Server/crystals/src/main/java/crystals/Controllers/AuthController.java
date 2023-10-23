@@ -1,9 +1,11 @@
 package crystals.Controllers;
 
-import crystals.Domain.Result;
+import crystals.Domain.AppUserService;
 import crystals.Models.AppUser;
-//import crystals.Security.AppUserService;
-//import crystals.Security.JWTConverter;
+import crystals.Security.JwtConverter;
+import crystals.Domain.Result;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,53 +22,62 @@ import java.util.Map;
 
 
 
-//    @RestController
-//    public class AuthController {
-//
-//        private final AuthenticationManager authenticationManager;
-//        private final JwtConverter converter;
-//
-//        public AuthController(AuthenticationManager authenticationManager, JwtConverter converter) {
-//            this.authenticationManager = authenticationManager;
-//            this.converter = converter;
-//        }
-//
-//        @PostMapping("/authenticate")
-//        public ResponseEntity<Map<String, String>> authenticate(@RequestBody Map<String, String> credentials) {
-//
-//            UsernamePasswordAuthenticationToken authToken =
-//                    new UsernamePasswordAuthenticationToken(credentials.get("username"), credentials.get("password"));
-//
-//            try {
-//                Authentication authentication = authenticationManager.authenticate(authToken);
-//
-//                if (authentication.isAuthenticated()) {
-//                    String jwtToken = converter.getTokenFromUser((UserDetails) authentication.getPrincipal());
-//
-//                    HashMap<String, String> map = new HashMap<>();
-//                    map.put("jwt_token", jwtToken);
-//
-//                    return new ResponseEntity<>(map, HttpStatus.OK);
-//                }
-//
-//            } catch (AuthenticationException ex) {
-//                System.out.println(ex);
-//            }
-//
-//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-//        }
-//
-//        @PostMapping("/refresh_token")
-//        // new... inject our `AppUser`, set by the `JwtRequestFilter`
-//        public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser appUser) {
-//            String jwtToken = converter.getTokenFromUser(appUser);
-//
-//            HashMap<String, String> map = new HashMap<>();
-//            map.put("jwt_token", jwtToken);
-//
-//            return new ResponseEntity<>(map, HttpStatus.OK);
-//        }
-//
-//    }
+    @RestController
+    @ConditionalOnWebApplication
+    public class AuthController {
+
+        private final AppUserService appUserService;
+
+        private final AuthenticationManager authenticationManager;
+        private final JwtConverter jwtConverter;
+
+        public AuthController(AppUserService appUserService,
+                              AuthenticationManager authenticationManager,
+                              JwtConverter jwtConverter) {
+            this.appUserService = appUserService;
+            this.authenticationManager = authenticationManager;
+            this.jwtConverter = jwtConverter;
+        }
+
+        @PostMapping("/crystals/sign-in")
+        public ResponseEntity<?> signIn(@RequestBody Map<String, String> credentials) {
+                            // is this username and password from sql?
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                    credentials.get("username"), credentials.get("password"));
+
+            // Moved AuthenticationException handling to the GlobalErrHandler
+            Authentication authentication = authenticationManager.authenticate(authToken);
+            if (authentication.isAuthenticated()) {
+                AppUser appUser = (AppUser) authentication.getPrincipal();
+                String jwt = jwtConverter.getTokenFromUser(appUser);
+                Map<String, String> result = new HashMap<>();
+                result.put("jwt_token", jwt);
+                return ResponseEntity.ok(result);
+            }
+
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+
+        @PostMapping("/crystals/sign-up") // where this username n password from?
+        public ResponseEntity<?> signUp(@RequestBody Map<String, String> credentials) {
+            Result<AppUser> result = appUserService.addAppUser(
+                    credentials.get("username"), credentials.get("password"));
+            if (result.isSuccess()) {
+                Map<String, Integer> appUserId = new HashMap<>();
+                appUserId.put("app_user_id", result.getPayload().getAppUserId());
+                return new ResponseEntity<>(appUserId, HttpStatus.CREATED);
+            }
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+
+        @PostMapping("/crystals/refresh-token")
+        public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser appUser) {
+            String jwt = jwtConverter.getTokenFromUser(appUser);
+            Map<String, String> result = new HashMap<>();
+            result.put("jwt_token", jwt);
+            return ResponseEntity.ok(result);
+        }
+
+    }
 
 

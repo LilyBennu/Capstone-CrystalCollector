@@ -23,12 +23,6 @@ public class CrystalController {
         this.crystalService = crystalService;
     }
 
-        //Esin example of AuthPrinciple
-//    public Result<Crystal> add(@RequestBody Crystal crystal, @AuthenticationPrincipal AppUser user) {
-//        crystal.setAppUserId(user.getAppUserId);
-//        Result<Crystal> result = service.add(crystal);
-//        // etc. ...
-//    } aaaaw yeah similar to board game
 
     @PostMapping("/add")
     public ResponseEntity<Result<Crystal>> addCrystal(@AuthenticationPrincipal AppUser appUser, @RequestBody Crystal crystal) {
@@ -71,8 +65,7 @@ public class CrystalController {
     }
     
 
-    //    can i do a hypen in the path name???? if not do crystals/list
-    @GetMapping("/crystal-list")
+    @GetMapping("/list")
     public List<Crystal> viewAllCrystals(@AuthenticationPrincipal AppUser appUser, int appUserId, Crystal crystal) {
         crystal.setAppUserId(appUser.getAppUserId());
         return crystalService.viewAllCrystals(appUserId);
@@ -80,7 +73,7 @@ public class CrystalController {
 
 
     @GetMapping("/detail/{crystalId}")
-    public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, int crystalId, Crystal crystal) {
+    public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId, Crystal crystal) {
         crystal.setAppUserId(appUser.getAppUserId());
 
         Crystal specificCrystal = crystalService.findCrystalById(crystalId);
