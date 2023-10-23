@@ -531,8 +531,8 @@ make ittttttttttt
 - what needs to be done/ can be done for front end?
 
 - npm init/ install everything (npx create react app/ bootstraps/ route/ jwt-decode) [DONE]
-- flesh out front end to if anything is vague
-- add time estimates to front end
+- flesh out front end to if anything is vague [DONE]
+- add time estimates to front end [DONE]
 
 ====================================================================
 
@@ -553,8 +553,9 @@ make ittttttttttt
 
 ### MONDAY TO DOOOO ### 
 
-- write antMatchers paths in correct order for SecurityConfig Class
+- write antMatchers paths in correct order for SecurityConfig Class [DONE]
 - complete AuthController [DONE]
+- make global err handler class 
 - how can now broken user tests be fixed?
 
 - make http requests for all backend mappings 
