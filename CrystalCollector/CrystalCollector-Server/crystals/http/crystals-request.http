@@ -8,12 +8,24 @@ POST {{url}}/sign-in HTTP/1.1
 Content-Type: application/json
 
 {
-    "appUserName": "Lily",
-    "passwordHash": "password_hash1"
+    "username": "AntiYily",
+    "password": "AL0ngP4ssword!"
 }
 
 ### 
 
+POST {{url}}/sign-up HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "AntiYily",
+    "password": "AL0ngP4ssword!"
+}
+
+
+###
+
+// AuthPrin means sends token it has the user 
 
 
 # @PostMapping("/crystals/sign-in")

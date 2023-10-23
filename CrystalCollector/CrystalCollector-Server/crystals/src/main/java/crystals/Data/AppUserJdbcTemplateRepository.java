@@ -64,6 +64,8 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         int id = insert.executeAndReturnKey(args).intValue();
         appUser.setAppUserId(id);
 
+        updateRoles(appUser);
+
         return appUser;
     }
 
@@ -72,7 +74,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         for (var authority : appUser.getAuthorities()) {
             String sql = """
                     insert into app_user_role (app_user_id, app_role_id)
-                    values (?, (select app_role_id from app_role where `name` = ?));
+                    values (?, (select app_role_id from app_role where app_role_specification = ?));
                     """;
             jdbcTemplate.update(sql, appUser.getAppUserId(), authority.getAuthority());
         }
@@ -81,7 +83,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     private List<String> getAuthorities(String appUserName) {
         final String sql = """
                 select 
-                    r.name
+                    r.app_role_specification
                 from app_role r
                 inner join app_user_role ur on ur.app_role_id = r.app_role_id
                 inner join app_user u on u.app_user_id = ur.app_user_id

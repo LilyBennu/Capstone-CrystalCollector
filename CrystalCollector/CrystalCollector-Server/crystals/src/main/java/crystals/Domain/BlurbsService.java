@@ -18,7 +18,7 @@ import java.util.List;
 //    addBlurb(crystals.Models.Blurbs blurbs);
         public Result<Blurbs> addBlurb(Blurbs blurbs) {
 
-            Result<Blurbs> result = validateAddBlurb(blurbs);
+            Result<Blurbs> result = validateBlurb(blurbs);
 
             if (!result.isSuccess()) {
                 return result;
@@ -41,7 +41,7 @@ import java.util.List;
 
 
         public Result<Blurbs> updateBlurbs(Blurbs blurbs) {
-            Result<Blurbs> result = validateUpdateBlurb(blurbs);
+            Result<Blurbs> result = validateBlurb(blurbs);
 
             if (!result.isSuccess()) {
                 return result;
@@ -81,67 +81,43 @@ import java.util.List;
             return blurbsRepository.findBlurbById(blurbsId);
         }
 
-        private Result<Blurbs> validateAddBlurb(Blurbs blurbs) {
+        private Result<Blurbs> validateBlurb(Blurbs blurbs) {
             Result<Blurbs> result = new Result<>();
             if (blurbs == null) {
                 result.addMessage("Blurb cannot be null", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getTitle() == null) {
                 result.addMessage("Please enter a Title", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getTextBody() == null) {
                 result.addMessage("Please enter text", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getAppUserId() <= 0) {
                 result.addMessage("User id is required", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getTextBody().length() > 2048) {
                 result.addMessage("Text body cannot exceed 2048 characters", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getTitle().length() > 250) {
                 result.addMessage("Title cannot exceed 250 characters", ResultType.INVALID);
+                return result;
             }
             if (blurbs.getAppUserId() <= 0) {
                 result.addMessage("Internal error", ResultType.NOT_FOUND);
+                return result;
             }
             if (blurbs.getImageUrl().length() > 500) {
                 result.addMessage("Image URL has exceeded character limit", ResultType.INVALID);
+                return result;
             }
 
             return result;
         }
 
-        private Result<Blurbs> validateUpdateBlurb(Blurbs blurbs) {
-            Result<Blurbs> result = new Result<>();
-            if (blurbs.getTitle() == null) {
-                result.addMessage("Please enter a Title", ResultType.INVALID);
-            }
-            if (blurbs.getTextBody() == null) {
-                result.addMessage("Please enter text", ResultType.INVALID);
-            }
-            if (blurbs.getTextBody().length() > 2048) {
-                result.addMessage("Text body cannot exceed 2048 characters", ResultType.INVALID);
-            }
-            if (blurbs.getTitle().length() > 250) {
-                result.addMessage("Title cannot exceed 250 characters", ResultType.INVALID);
-            }
-            if (blurbs.getAppUserId() <= 0) {
-                result.addMessage("Internal error", ResultType.NOT_FOUND);
-            }
-            if (blurbs.getImageUrl().length() > 500) {
-                result.addMessage("Image URL has exceeded character limit", ResultType.INVALID);
-            }
 
-            return result;
-        }
-
-        private Result<Blurbs> validateBlurbs(Blurbs blurbs) {
-            Result<Blurbs> result = new Result<>();
-            if (blurbs.getAppUserId() <= 0) {
-                result.addMessage("Internal error", ResultType.NOT_FOUND);
-            }
-            // question how do i make this apply to delete, view, and find blurb by Id?
-
-            return result;
-        }
     }

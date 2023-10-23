@@ -19,7 +19,7 @@ public class AppUser implements UserDetails {
 
     public AppUser() {}
 
-    public AppUser(int id, String username, String passwordHash, boolean enabled, List<String> authorities) {
+    public AppUser(int appUserId, String appUserName, String passwordHash, boolean enabled, List<String> authorities) {
         this.appUserId = appUserId;
         this.appUserName = appUserName;
         this.passwordHash = passwordHash;
@@ -56,36 +56,37 @@ public class AppUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.authorities;
     }
 
+    // TODO: consolidate password and username fields
     @Override
     public String getPassword() {
-        return null;
+        return this.passwordHash;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.appUserName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     public boolean isEnabled() {
-        return enabled;
+        return this.enabled;
     }
 
     public void setEnabled(boolean enabled) {
