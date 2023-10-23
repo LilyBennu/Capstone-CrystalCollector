@@ -559,8 +559,14 @@ make ittttttttttt
 - make global err handler class [DONE]
 - how can now broken user tests be fixed?
 
-- make http requests for all backend mappings 
-- make sure sign in and sign up work
+- make http requests for all backend mappings [DONE]
+- make sure sign in and sign up work [DONE]
 - finish up back end (appUser and Security) [DONE]
 
 - start on front end To Do list
+=====================================================================
+
+### back end leftovers to do ###
+
+- fix messed up data appUser tests
+- make appUser domain tests
