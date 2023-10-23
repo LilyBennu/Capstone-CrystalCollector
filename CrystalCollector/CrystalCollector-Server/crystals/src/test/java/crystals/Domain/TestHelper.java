@@ -20,23 +20,24 @@ public class TestHelper {
     }
 
     public static Crystal makeCrystal() {
-        Crystal crystal1 = new Crystal();
+        Crystal testCrystal = new Crystal();
 
-        crystal1.setCrystalId(1);
-        crystal1.setCrystalName("TestCrystalName");
-        crystal1.setColor("TestColor");
-        crystal1.setAmountOwned(10);
-        crystal1.setShape("TestShape");
-        crystal1.setNotes("TestNotes words words words");
-        crystal1.setRaw(true);
-        crystal1.setInCollection(true);
-        crystal1.setImageUrl("test.com/exampleUrl");
-        crystal1.setCrystalSpecification(CrystalSpecification.REGULAR);
-        crystal1.setAppUserId(1);
-        return crystal1;
+        testCrystal.setCrystalId(1);
+        testCrystal.setCrystalName("TestCrystalName");
+        testCrystal.setColor("TestColor");
+        testCrystal.setAmountOwned(10);
+        testCrystal.setShape("TestShape");
+        testCrystal.setNotes("TestNotes words words words");
+        testCrystal.setRaw(true);
+        testCrystal.setInCollection(true);
+        testCrystal.setImageUrl("test.com/exampleUrl");
+        testCrystal.setCrystalSpecification(CrystalSpecification.REGULAR);
+        testCrystal.setAppUserId(1);
+        return testCrystal;
     }
 
     // make one for AppUser eventually
+
 
 
 

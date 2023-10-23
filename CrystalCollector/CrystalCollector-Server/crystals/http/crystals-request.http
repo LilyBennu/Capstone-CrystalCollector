@@ -1,0 +1,43 @@
+ @url = http://localhost:8080/crystals
+
+####
+
+// should i change my username and password in the database first?
+// these fields are the java names right?
+POST {{url}}/sign-in HTTP/1.1 
+Content-Type: application/json
+
+{
+    "appUserName": "Lily",
+    "passwordHash": "password_hash1"
+}
+
+### 
+
+
+
+# @PostMapping("/crystals/sign-in")
+# @PostMapping("/crystals/sign-up")
+# @PostMapping("/crystals/refresh-token")
+
+
+# GET, "/crystals/list").hasAnyAuthority("USER")
+
+# GET, "/crystals/detail/{crystalId}").hasAnyAuthority("USER")
+
+# POST, "/crystals/add").hasAnyAuthority("USER")
+
+# PUT, "/crystals/update/{crystalId}").hasAnyAuthority("USER")
+
+# DELETE, "/crystals/remove/{crystalId}").hasAnyAuthority("USER")
+
+
+# GET, "/crystals/blurbs/list"
+
+# GET, "/crystals/blurbs/detail/{blurbsId}")
+
+# POST, "/crystals/blurbs/add").hasAnyAuthority("USER")
+
+# PUT, "/crystals/blurbs/update/{blurbsId}").hasAnyAuthority("USER")
+
+# DELETE, "/crystals/blurbs/delete/{blurbsId}").hasAnyAuthority("USER")

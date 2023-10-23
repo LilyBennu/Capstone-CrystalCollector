@@ -237,21 +237,21 @@ shouldNotFindCrystalWitoutAppUserId
 
 ### do security ### 
 
-[EST: 4 HRS] [actual?: ]
+[EST: 4 HRS] [actual?: the whole weekend and monday *cries* ]
 
 *this might take me longer than i like because i am kinda iffy on security tbh*
 
 - use existing examples to fill in these classes high key!!! [45 mins]
 - is not very complicated but just still really unfamiliar [lies]
 
-- ### reconfigure AuthController class 
+- ### reconfigure AuthController class [DONE]
     - make sure to add refresh_token path 
     - import appUser class
     - think i need to change all instances of "username" to appUsername
     - everyone is authorized on site because only users exist no admin
     - add endpoint to add users (controller tings look at lesson for example) aaaah pooh i need to make a sign up component and sign in component for front end
 
-- ### reconfigure AppUserService class 
+- ### reconfigure AppUserService class [DONE]
     - no admins needed
     - import appUser class
     -  change instances of "username" to *appUserName*
@@ -259,7 +259,7 @@ shouldNotFindCrystalWitoutAppUserId
     - check lesson for service class example and see what should be added to my class, what is necessary for my project?
     - wait until database lesson is done then might have to come back to this class
 
-- ### reconfigure SecurityConfig class 
+- ### reconfigure SecurityConfig class [DONE]
     - update all them antMatchers for sure
     - high key everything is just permitAll() 
     - does http.csrf().disable(); need to be enabled eventually?
@@ -278,7 +278,7 @@ shouldNotFindCrystalWitoutAppUserId
 - ### AppUser [DONE]
     - of those overide methods do i need to change them?
 
-- ### AppUserMapper 
+- ### AppUserMapper [DONE]
     - if i'm not using roles do i have to add sql exception and all that other stuff to the mapper?
 
 - hopefully doesn't take me long and i can test security immediately when done *Esin said no need to test security, but make sure user is working*
@@ -366,7 +366,7 @@ shouldNotFindCrystalWitoutAppUserId
 
 ======================================================================
 
-### Global Error Handling Class ### 
+### Global Error Handling Class ### [DONE]
 
 make ittttttttttt
 
@@ -449,6 +449,7 @@ make ittttttttttt
 
 
 ### App User Service TESTS (will be done in security) ###
+*neeeeeed to doooooooo*
 
 - is there where i do testing to make sure user is logged in so that everything is tied to appUserId??
 
@@ -476,7 +477,7 @@ make ittttttttttt
 
 =====================================================================
 
-### controller paths notes and thoughts ### 
+### controller paths notes and thoughts ### [DONE]
 
 *this is important because the paths need to be per user for most of the CRUD functions/ for login, need to write that correctly*
  - i was getting getting mapping paths confused with Route Paths lol
@@ -490,7 +491,7 @@ make ittttttttttt
 - celebrate and have a snack lol 
 =====================================================================
 
-### Back end questions for Esin ### 
+### Back end questions for Esin ### [DONE]
 
 - do what for the user login haaaaaaah?
 
@@ -503,14 +504,14 @@ make ittttttttttt
       ###  ("/appUserId/crystals/blah)??? noooo easier to hack
       user info in token with authprincipal
 
-- for the antMatchers for security I have to make one for every method that has a path essentially?
-- yep petmitAll and authenticated decided what pages need to authenticated and what are permit all
+- for the antMatchers for security I have to make one for every method that has a path essentially? [yes]
+- yep petmitAll and authenticated decided what pages need to authenticated and what are permit all [DONE]
 
  - ### Notes ### - 
- - authentication principle to grab user assoicated with token
+ - authentication principle to grab user assoicated with token [DONE]
     
 
-    ### example ###
+    ### example ### [DONE]
     - public Result<Crystal> add(@RequestBody Crystal crystal, @AuthenticationPrinciple AppUser user) {
     crystal.setAppUserId(user.getAppUserId); 
     Result<Crystal> result = service.add(crystal); 
@@ -555,11 +556,11 @@ make ittttttttttt
 
 - write antMatchers paths in correct order for SecurityConfig Class [DONE]
 - complete AuthController [DONE]
-- make global err handler class 
+- make global err handler class [DONE]
 - how can now broken user tests be fixed?
 
 - make http requests for all backend mappings 
 - make sure sign in and sign up work
-- finish up back end (appUser and Security)
+- finish up back end (appUser and Security) [DONE]
 
 - start on front end To Do list
