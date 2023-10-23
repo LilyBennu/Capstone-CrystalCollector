@@ -1,6 +1,8 @@
 package crystals.Models;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,6 +14,20 @@ public class AppUser implements UserDetails {
     private String appUserName;
     private String passwordHash;
     private boolean enabled;
+
+    private List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+    public AppUser() {}
+
+    public AppUser(int id, String username, String passwordHash, boolean enabled, List<String> authorities) {
+        this.appUserId = appUserId;
+        this.appUserName = appUserName;
+        this.passwordHash = passwordHash;
+        this.enabled = enabled;
+        this.authorities = authorities.stream()
+                .map(r -> new SimpleGrantedAuthority(r))
+                .toList();
+    }
 
 
     public int getAppUserId() {
@@ -87,5 +103,17 @@ public class AppUser implements UserDetails {
     @Override
     public int hashCode() {
         return Objects.hash(appUserId, appUserName, passwordHash, enabled);
+    }
+
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "appUserId=" + appUserId +
+                ", appUserName='" + appUserName + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", enabled=" + enabled +
+                ", authorities=" + authorities +
+                '}';
     }
 }

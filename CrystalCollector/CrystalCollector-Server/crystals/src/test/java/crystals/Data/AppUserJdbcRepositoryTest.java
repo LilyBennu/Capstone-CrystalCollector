@@ -44,14 +44,14 @@ public class AppUserJdbcRepositoryTest {
     @Test
     void shouldFindAppUserById() {
 
-        AppUser lily = repository.findByAppUserId(1);
+        AppUser lily = repository.findByAppUserId(1, "TestLily");
         assertEquals(1, lily.getAppUserId());
     }
 
     @Test
     void shouldNotFindNonExistentAppUser() {
 
-        AppUser missingMcGee = repository.findByAppUserId(MISSING_ID);
+        AppUser missingMcGee = repository.findByAppUserId(MISSING_ID, "blah");
         assertNull(missingMcGee);
 
     }

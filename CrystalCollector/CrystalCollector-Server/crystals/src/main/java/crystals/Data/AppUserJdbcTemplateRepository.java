@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Repository
 public class AppUserJdbcTemplateRepository implements AppUserRepository {
@@ -18,6 +19,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
 
 
+
     @Override
     public AppUser findByUsername(String username) {
 
@@ -27,24 +29,24 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
                 from app_user
                 where username = ?;
                 """;
-        return jdbcTemplate.query(sql, new Object[]{username}, new AppUserMapper()).stream()
-                .findFirst()
-                .orElse(null);
+        return jdbcTemplate.query(sql, new AppUserMapper(getAuthorities(username)), username).stream()
+                .findFirst().orElse(null);
     }
 
 
+
     @Override
-    public AppUser findByAppUserId(int appUserId) {
+    public AppUser findByAppUserId(int appUserId, String appUserName) {
         String sql = """
                 select
                     app_user_id, username, password_hash, enabled
                 from app_user
                 where app_user_id = ?;
                 """;
-        return jdbcTemplate.query(sql, new Object[]{appUserId}, new AppUserMapper()).stream()
-                .findFirst()
-                .orElse(null);
+        return jdbcTemplate.query(sql, new AppUserMapper(getAuthorities(appUserName)), appUserName).stream()
+                .findFirst().orElse(null);
     }
+
 
 
     @Override
@@ -64,5 +66,29 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
         return appUser;
     }
+
+    private void updateRoles(AppUser appUser) {
+        jdbcTemplate.update("delete from app_user_role where app_user_id = ?;", appUser.getAppUserId());
+        for (var authority : appUser.getAuthorities()) {
+            String sql = """
+                    insert into app_user_role (app_user_id, app_role_id)
+                    values (?, (select app_role_id from app_role where `name` = ?));
+                    """;
+            jdbcTemplate.update(sql, appUser.getAppUserId(), authority.getAuthority());
+        }
+    }
+
+    private List<String> getAuthorities(String appUserName) {
+        final String sql = """
+                select 
+                    r.name
+                from app_role r
+                inner join app_user_role ur on ur.app_role_id = r.app_role_id
+                inner join app_user u on u.app_user_id = ur.app_user_id
+                where u.username = ?;
+                """;
+        return jdbcTemplate.query(sql, (rs, i) -> rs.getString("app_role_specification"), appUserName);
+    }
+
 
 }

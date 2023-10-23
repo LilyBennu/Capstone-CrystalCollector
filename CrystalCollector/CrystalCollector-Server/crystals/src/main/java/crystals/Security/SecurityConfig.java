@@ -1,5 +1,6 @@
 package crystals.Security;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,20 +12,22 @@ import org.springframework.security.web.SecurityFilterChain;
 
 
 @Configuration
+@ConditionalOnWebApplication
 public class SecurityConfig {
-    // SecurityFilterChain allows configuring
-    // web based security for specific http requests.
 
-//    private final JwtConverter converter;
-//
-//    public SecurityConfig(JwtConverter converter) {
-//        this.converter = converter;
-//    }
+//     SecurityFilterChain allows configuring
+//     web based security for specific http requests.
+
+    private final JwtConverter jwtConverter;
+
+    public SecurityConfig(JwtConverter converter) {
+        this.jwtConverter = converter;
+    }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationConfiguration authenticationConfiguration) throws Exception {
         // we're not using HTML forms in our app
-        //so disable CSRF (Cross Site Request Forgery)
+        //so disable CSRF (Cross Site Request Forgery) SHOULD THIS BE ENABLED?
         http.csrf().disable();
 
         // this configures Spring Security to allow
@@ -35,6 +38,8 @@ public class SecurityConfig {
         // as they're evaluated in the order that they're added
 
         // change these for my paths, i think change everything to authorize/ permitAll
+        // naw some or maybe even all of them need to be authority(USER)
+        // also what order should these go in??? do GETS - POSTS - PUT - DELETE
         http.authorizeRequests()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/refresh_token").authenticated() // token refresh
@@ -46,7 +51,7 @@ public class SecurityConfig {
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()
-                //.addFilter(new //jwt filter)
+                .addFilter(new JwtRequestFilter(authenticationManager(authenticationConfiguration), jwtConverter))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
@@ -55,8 +60,8 @@ public class SecurityConfig {
 
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 
 }

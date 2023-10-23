@@ -266,7 +266,7 @@ shouldNotFindCrystalWitoutAppUserId
     - unComment JWT Converter
     - update antMatchers for create-account path
 
-- ### reconfigure JWTConverter class
+- ### reconfigure JWTConverter class [DONE]
     - update "username"  to *appUserName*
     - import appUser class 
     - aaah the authorities stuff need to be taken out and roles
@@ -275,7 +275,7 @@ shouldNotFindCrystalWitoutAppUserId
     - think this is fine how it is now
     - do i take everything out the App class now?
 
-- ### AppUser 
+- ### AppUser [DONE]
     - of those overide methods do i need to change them?
 
 - ### AppUserMapper 
@@ -323,6 +323,8 @@ shouldNotFindCrystalWitoutAppUserId
 
 *domain testing is usually nicer to me than data testing , so hopefully this goes way smooth*
 
+- finish appUser Tests for *domain and data*
+
 - make testing classes for models
 - think up and write test methods for each class
 - test them 
@@ -337,7 +339,7 @@ shouldNotFindCrystalWitoutAppUserId
 *thiiiiiiiiiiiink*
 *remeber what Esin said, focus on testing validations not necessarily passthrough methods*
 
-### Blurb Service TESTS ###
+### Blurb Service TESTS ### [DONE]
 
 - shouldOnlyShowBlurbsForUser
 - shouldntAllowNullTitle
@@ -350,7 +352,7 @@ shouldNotFindCrystalWitoutAppUserId
 - test for making sure appUserId connect to everything?
 
 
-### Crystal Service TESTS ### 
+### Crystal Service TESTS ### [DONE]
 - *why did make so many fields for crystal criesss* 
 - shouldntAllowNullCrystalName
 - shouldntAllowCrystalNameOverMaxChars
@@ -445,15 +447,15 @@ shouldNotFindCrystalWitoutAppUserId
 
 - research and start implementation for AWS S3 for photo upload
 
-- implement as much as possible back end security (come and right here whatever questions you have for monday) (maybe ask Brian for help since he volunteered himself lol)
-    - add user role and other table to sql
-    - go on ahead and implement security as it is that is the lazy programmer way to do it mawhahah
+- implement as much as possible back end security (come and right here whatever questions you have for monday) (maybe ask Brian for help since he volunteered himself lol) [DONE]
+    - add user role and other table to sql [DONE]
+    - go on ahead and implement security as it is that is the lazy programmer way to do it mawhahah [DONE]
 
 - add all necessary components and code for front end React Security, go through lessons for help
 
 - what needs to be done/ can be done for front end?
 
-- npm init/ install everything (npx create react app/ bootstraps/ route/ jwt-decode)
+- npm init/ install everything (npx create react app/ bootstraps/ route/ jwt-decode) [DONE]
 - flesh out front end to if anything is vague
 - add time estimates to front end
 
@@ -464,3 +466,24 @@ shouldNotFindCrystalWitoutAppUserId
 - tests keep failing becauase the fields can't be null but that is the whole point of the test
     CrystalServiceTest
         - shouldNotAddNullCrystal
+
+
+- question for JWTConverter -getUserFromToken method differences
+- should http.crsf().disabled(); in SecurityConfig be enabled
+- can i just move what's in appConfig into App?
+
+
+=====================================================================
+
+### MONDAY TO DOOOO ### 
+
+- write antMatchers paths in correct order for SecurityConfig Class
+- checkout BoardGame AppUser Mapper
+- complete AuthController
+- is AppUserService complete?
+
+- make http requests for all backend mappings 
+- make sure sign in and sign up work
+- finish up back end (appUser and Security)
+
+- start on front end To Do list

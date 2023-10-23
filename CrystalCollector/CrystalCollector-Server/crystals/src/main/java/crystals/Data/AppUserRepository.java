@@ -1,9 +1,15 @@
 package crystals.Data;
 
+import crystals.Models.AppUser;
+
+import java.util.List;
+
 public interface AppUserRepository {
-    crystals.Models.AppUser findByUsername(String username);
+    AppUser findByUsername(String username);
 
-    crystals.Models.AppUser findByAppUserId(int appUserId);
+    AppUser findByAppUserId(int appUserId, String appUserName);
 
-    crystals.Models.AppUser addAppUser(crystals.Models.AppUser appUser);
+    AppUser addAppUser(AppUser appUser);
+
+
 }
