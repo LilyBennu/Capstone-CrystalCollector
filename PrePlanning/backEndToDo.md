@@ -287,30 +287,51 @@ shouldNotFindCrystalWitoutAppUserId
 
 ### Finish SecurityConfig Class paths #### 
 
-[EST: 30 mins] [actual?: ]
+[EST: 30 mins] [actual?: 30 mins]
 
-### AuthController Paths
+### AuthController Paths [DONE]
 
 @PostMapping("/crystals/sign-in")
 @PostMapping("/crystals/sign-up")
 @PostMapping("/crystals/refresh-token")
 
-### CrystalController Paths
+### CrystalController Paths       GET, POST, PUT, DELETE,
+###     .permitAll()    .authenticated()    .hasAnyAuthority("USER")
 @RequestMapping("/crystals")
-@GetMapping("/list")
-@GetMapping("/detail/{crystalId}")
-@PostMapping("/add")
-@PutMapping("/update/{crystalId}")
-@DeleteMapping("/remove/{crystalId}")
+
+@GetMapping("/list") [DONE]
+- .antMatchers(HttpMethod.GET, "/crystals/list").hasAnyAuthority("USER")
+
+@GetMapping("/detail/{crystalId}") [DONE]
+- .antMatchers(HttpMethod.GET, "/crystals/detail/{crystalId}").hasAnyAuthority("USER")
+
+@PostMapping("/add") [DONE]
+- .antMatchers(HttpMethod.POST, "/crystals/add").hasAnyAuthority("USER")
+
+@PutMapping("/update/{crystalId}") [DONE]
+- .antMatchers(HttpMethod.PUT, "/crystals/update/{crystalId}").hasAnyAuthority("USER")
+
+@DeleteMapping("/remove/{crystalId}") [DONE]
+- .antMatchers(HttpMethod.DELETE, "/crystals/remove/{crystalId}").hasAnyAuthority("USER")
 
 
 ### BlurbsController Paths
 @RequestMapping("/crystals")
-@GetMapping("/blurbs/list")
-@GetMapping("/blurbs/detail/{blurbsId}")
-@PostMapping("/blurbs/add")
-@PutMapping("/blurbs/update/{blurbsId}")
-@DeleteMapping("/blurbs/delete/{blurbsId}")
+
+@GetMapping("/blurbs/list")  [DONE]
+- .antMatchers(HttpMethod.GET, "/crystals/blurbs/list").hasAnyAuthority("USER")
+
+@GetMapping("/blurbs/detail/{blurbsId}")  [DONE]
+- .antMatchers(HttpMethod.GET, "/crystals/blurbs/detail/{blurbsId}").hasAnyAuthority("USER")
+
+@PostMapping("/blurbs/add")  [DONE]
+- .antMatchers(HttpMethod.POST, "/crystals/blurbs/add").hasAnyAuthority("USER")
+
+@PutMapping("/blurbs/update/{blurbsId}")  [DONE]
+- .antMatchers(HttpMethod.PUT, "/crystals/blurbs/update/{blurbsId}").hasAnyAuthority("USER")
+
+@DeleteMapping("/blurbs/delete/{blurbsId}")  [DONE]
+- .antMatchers(HttpMethod.DELETE, "/crystals/blurbs/delete/{blurbsId}").hasAnyAuthority("USER")
 
 =================================================================
 
@@ -343,7 +364,13 @@ shouldNotFindCrystalWitoutAppUserId
 
 
 
-====================================================================
+======================================================================
+
+### Global Error Handling Class ### 
+
+make ittttttttttt
+
+=======================================================================
 
  *with everything done above this data layer will be complete yay*
 
