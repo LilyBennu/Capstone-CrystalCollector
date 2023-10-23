@@ -478,9 +478,8 @@ shouldNotFindCrystalWitoutAppUserId
 ### MONDAY TO DOOOO ### 
 
 - write antMatchers paths in correct order for SecurityConfig Class
-- checkout BoardGame AppUser Mapper
 - complete AuthController
-- is AppUserService complete?
+- how can now broken user tests be fixed?
 
 - make http requests for all backend mappings 
 - make sure sign in and sign up work

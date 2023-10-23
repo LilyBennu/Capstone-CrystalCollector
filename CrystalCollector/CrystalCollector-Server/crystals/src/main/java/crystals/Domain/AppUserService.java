@@ -44,7 +44,7 @@ public class AppUserService implements UserDetailsService {
         }
 
         password = passwordEncoder.encode(password);
-                    // angry again just like JWTConverter expected 0 arguments but found 5
+
         AppUser appUser = new AppUser(0, appUserName, password, true, List.of("USER"));
 
         result.setPayload(appUserRepository.addAppUser(appUser));
@@ -52,10 +52,10 @@ public class AppUserService implements UserDetailsService {
         return result;
     }
 
-    private Result<AppUser> validate(String username, String password) {
+    private Result<AppUser> validate(String appUserName, String password) {
         Result<AppUser> result = new Result<>();
 
-        if (username == null || username.isBlank()) {
+        if (appUserName == null || appUserName.isBlank()) {
             result.addMessage("username is required", ResultType.INVALID);
         }
 
@@ -67,7 +67,7 @@ public class AppUserService implements UserDetailsService {
             return result;
         }
 
-        if (username.length() > 50) {
+        if (appUserName.length() > 50) {
             result.addMessage("username must be 50 characters max", ResultType.INVALID);
         }
 
@@ -80,7 +80,7 @@ public class AppUserService implements UserDetailsService {
         }
 
         try {
-            if (loadUserByUsername(username) != null) {
+            if (loadUserByUsername(appUserName) != null) {
                 result.addMessage("the provided username already exists", ResultType.INVALID);
             }
         } catch (UsernameNotFoundException e) {
@@ -112,19 +112,4 @@ public class AppUserService implements UserDetailsService {
     }
 
 
-    // oooh okay this was old way before using database
-//    private void makeUsers() {
-//
-//        // Leverage Spring Security's `User` class to build some in-memory users.
-//        // This is not a permanent solution. Eventually, we'll want to
-//        // store our users and roles in the database.
-//
-//        UserDetails user = User.builder()
-//                .passwordEncoder(passwordEncoder::encode)
-//                .username("user")
-//                .password("user-password")
-//                .authorities("USER")
-//                .build();
-//
-//    }
 }

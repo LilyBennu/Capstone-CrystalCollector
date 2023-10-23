@@ -17,25 +17,26 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 - make folders for components 
     - buttons?
-    - add crystal form
+    - add crystal form [*]
     - crystal list/ table
+    - blurb form [*]
     - haaaaah?
     - is Nav in component folder lol?
     - sign in component
     - sign up component
 - make folders for pages 
-    - login page
-    - welcome page/ 
-    - crystals by user page 
-    - blurbs page " "
-    - about page 
-    - contact page 
-    - 404/ bad page
+    - login page  [*]
+    - welcome page/ [*]
+    - crystals by user page [*]
+    - blurbs page " "[*]
+    - about page   [*]
+    - contact page [*]
+    - 404/ bad page [*]
     - anything else????
-        - crystal detail page? (i think will be necessary)
+        - crystal detail page? (i think will be necessary) [*]
 - make folder for styles
     - aaaaaaw yeah lets get cute 
-- make NavBar component
+- make NavBar component [*]
 - in App js make code for Route
 - *check board game example for what needs to be added for security and react lesson too*
 
@@ -104,7 +105,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - shows crystals on crystal collection page 
 - gotta decide how on the card
 
-### add crystal form component ### 
+### add/ update crystal form component ### 
 [EST: ] [actual?: ]
 
 - if crystalId > 0 edit *else* add new crystal 
