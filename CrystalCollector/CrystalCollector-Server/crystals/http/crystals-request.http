@@ -2,54 +2,135 @@
 
 ####
 
-// should i change my username and password in the database first?
-// these fields are the java names right?
+
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODEwOTYzNn0.Nm54c_KecwC7dvf_zUPQZ886bzSjt6lfOQm-MANfoK8
+
+
 POST {{url}}/sign-in HTTP/1.1 
 Content-Type: application/json
 
 {
-    "username": "AntiYily",
+    "username": "issaMeLILY!",
     "password": "AL0ngP4ssword!"
 }
 
-### 
+####
 
 POST {{url}}/sign-up HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "AntiYily",
+    "username": "issaMeLILY!",
     "password": "AL0ngP4ssword!"
 }
 
 
-###
+####
 
-// AuthPrin means sends token it has the user 
-
-
-# @PostMapping("/crystals/sign-in")
-# @PostMapping("/crystals/sign-up")
-# @PostMapping("/crystals/refresh-token")
+POST {{url}}/refresh-token HTTP/1.1
+Accept: application/json
+Authorization: Bearer {{token}}
 
 
-# GET, "/crystals/list").hasAnyAuthority("USER")
+####
 
-# GET, "/crystals/detail/{crystalId}").hasAnyAuthority("USER")
+GET {{url}}/list HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
-# POST, "/crystals/add").hasAnyAuthority("USER")
+####
 
-# PUT, "/crystals/update/{crystalId}").hasAnyAuthority("USER")
+GET {{url}}/detail/4 HTTP/1.1 
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
-# DELETE, "/crystals/remove/{crystalId}").hasAnyAuthority("USER")
+// make some crystals first
+####
+
+POST {{url}}/add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
 
-# GET, "/crystals/blurbs/list"
+{
+    "crystalName": "Pyrite",
+    "color": "golden",
+    "amountOwned": "1",
+    "shape": "polyhedron",
+    "notes": "example crystal",
+    "raw": "true",
+    "inCollection": "true",
+    "crystalSpecification": "REGULAR",
+    "imageUrl": "https://www.mindat.org/imagecache/30/08/01144920014946254909910.jpg",
+    "appUserId": "5"
+}
 
-# GET, "/crystals/blurbs/detail/{blurbsId}")
+####
 
-# POST, "/crystals/blurbs/add").hasAnyAuthority("USER")
+PUT {{url}}/update/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
-# PUT, "/crystals/blurbs/update/{blurbsId}").hasAnyAuthority("USER")
+{
+    "crystalName": "Fool's Gold",
+    "color": "golden",
+    "amountOwned": "3",
+    "shape": "polyhedron",
+    "notes": "example crystal",
+    "raw": "true",
+    "inCollection": "true",
+    "crystalSpecification": "REGULAR",
+    "imageUrl": "https://www.mindat.org/imagecache/30/08/01144920014946254909910.jpg",
+    "appUserId": "5",
+    "crystalId": "4"
+}
 
-# DELETE, "/crystals/blurbs/delete/{blurbsId}").hasAnyAuthority("USER")
+####
+
+DELETE {{url}}/4 HTTP/1.1
+Authorization: Bearer {{token}}
+
+####
+
+
+GET {{url}}/blurbs/list HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+####
+
+GET {{url}}/blurbs/detail/4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+####
+
+POST  {{url}}/blurbs/add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "I wonder?",
+    "textBody": "does the shikon jewel exist irl?",
+    "imageUrl": "https://static.wikia.nocookie.net/evil/images/8/83/The_Shikon_Jewel.jpg/revision/latest?cb=20150410162622",
+    "appUserId": "5"
+}
+
+####
+
+PUT  {{url}}/blurbs/update/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+{
+    "title": "I doth wonder?",
+    "textBody": "doth the shikon jewel exist within the confines of reality?",
+    "imageUrl": "https://static.wikia.nocookie.net/evil/images/8/83/The_Shikon_Jewel.jpg/revision/latest?cb=20150410162622",
+    "appUserId": "5",
+    "blurbsId": "4"
+}
+
+####
+
+DELETE {{url}}/blurbs/delete/4
+Authorization: Bearer {{token}}

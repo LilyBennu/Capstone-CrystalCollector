@@ -63,16 +63,15 @@ public class BlurbsController {
 
 
     @GetMapping("/blurbs/list")
-    public List<Blurbs> findAllBlurbs(@AuthenticationPrincipal AppUser appUser, int appUserId, Blurbs blurbs) {
-        blurbs.setAppUserId(appUser.getAppUserId());
+    public List<Blurbs> findAllBlurbs(@AuthenticationPrincipal AppUser appUser) {
+        //blurbs.setAppUserId(appUser.getAppUserId());
 
-        return blurbsService.findAllBlurbs(appUserId);
+        return blurbsService.findAllBlurbs(appUser.getAppUserId());
     }
 
 
     @GetMapping("/blurbs/detail/{blurbsId}")
-    public ResponseEntity<Blurbs> findBlurbById(@AuthenticationPrincipal AppUser appUser, Blurbs blurbs, @PathVariable int blurbsId) {
-        blurbs.setAppUserId(appUser.getAppUserId());
+    public ResponseEntity<Blurbs> findBlurbById(@AuthenticationPrincipal AppUser appUser, @PathVariable int blurbsId) {
 
         Blurbs specificBlurb = blurbsService.findBlurbById(blurbsId);
         if (specificBlurb == null) {

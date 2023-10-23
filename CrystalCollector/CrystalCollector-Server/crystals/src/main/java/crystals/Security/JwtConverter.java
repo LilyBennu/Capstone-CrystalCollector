@@ -23,7 +23,7 @@ public class JwtConverter {
     private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     // 2. "Configurable" constants
     private final String ISSUER = "crystals-api";
-    private final int EXPIRATION_MINUTES = 15;
+    private final int EXPIRATION_MINUTES = 180;
     private final int EXPIRATION_MILLIS = EXPIRATION_MINUTES * 60 * 1000;
 
     public String getTokenFromUser(AppUser appUser) {
@@ -58,11 +58,11 @@ public class JwtConverter {
 
             String appUserName = jws.getBody().getSubject();
             // this is the bg version, which was a bit different than lesson version
-            int appUserId = jws.getBody().get("app_user_id", Integer.class);
+            Integer appUserId = jws.getBody().get("app_user_id", Integer.class);
             List<String> authorities = jws.getBody().get("authorities", List.class);
 
 
-            // this is angry, expecting 0 arguments but found 5
+
             return new AppUser(appUserId, appUserName, null, true, authorities);
 
         } catch (JwtException e) {

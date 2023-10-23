@@ -45,8 +45,8 @@ public class BlurbsJdbcTemplateRepository implements BlurbsRepository {
                     title = ?,
                     text_body =?,
                     image_url = ?,
-                    app_user_id
-                where blurbs_id = ? AND app_user_id = ?;
+                    app_user_id =?
+                where blurbs_id = ?;
                 """;
 
         boolean updated = jdbcTemplate.update(sql,

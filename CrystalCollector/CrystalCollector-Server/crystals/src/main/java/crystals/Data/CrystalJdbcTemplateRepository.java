@@ -51,6 +51,10 @@ public class CrystalJdbcTemplateRepository implements CrystalRepository {
 
     @Override
     public boolean updateCrystal(Crystal crystal) {
+
+        int crystalSpecifcationId = jdbcTemplate.queryForObject("select crystal_specification_id from" +
+                " crystal_specification where crystal_type = ?;", Integer.class, crystal.getCrystalSpecification().toString());
+
         String sql = """
                 update crystal set
                     crystal_name = ?,
@@ -61,7 +65,7 @@ public class CrystalJdbcTemplateRepository implements CrystalRepository {
                     raw = ?,
                     in_collection = ?,
                     image_url = ?,
-                    crystal_specification =?
+                    crystal_specification_id =?
                 
                 where crystal_id = ?;
                 """;
@@ -74,7 +78,7 @@ public class CrystalJdbcTemplateRepository implements CrystalRepository {
                 crystal.isRaw(),
                 crystal.isInCollection(),
                 crystal.getImageUrl(),
-                crystal.getCrystalSpecification(),
+                crystalSpecifcationId,
 
                 crystal.getCrystalId()) > 0;
     }
@@ -96,10 +100,10 @@ public List<Crystal> viewAllCrystals(int appUserId) {
     String sql = """
             select
                 c.crystal_id, c.crystal_name, c.color, c.amount_owned, c.shape, c.notes, c.raw, c.in_collection,\s
-                   c.image_url, c.crystal_specification_id, c.app_user_id, cs.crystal_type      
+                   c.image_url, c.crystal_specification_id, c.app_user_id, cs.crystal_type    \s
             from crystal c
             inner join crystal_specification cs on c.crystal_specification_id = cs.crystal_specification_id
-            where app_user_id = ?;
+            where c.app_user_id = ?;
             """;
     return jdbcTemplate.query(sql, new CrystalMapper(), appUserId);
 }

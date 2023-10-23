@@ -66,15 +66,15 @@ public class CrystalController {
     
 
     @GetMapping("/list")
-    public List<Crystal> viewAllCrystals(@AuthenticationPrincipal AppUser appUser, int appUserId, Crystal crystal) {
-        crystal.setAppUserId(appUser.getAppUserId());
-        return crystalService.viewAllCrystals(appUserId);
+    public List<Crystal> viewAllCrystals(@AuthenticationPrincipal AppUser appUser) {
+
+        return crystalService.viewAllCrystals(appUser.getAppUserId());
     }
 
 
     @GetMapping("/detail/{crystalId}")
-    public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId, Crystal crystal) {
-        crystal.setAppUserId(appUser.getAppUserId());
+    public ResponseEntity<Crystal> findCrystalById(@AuthenticationPrincipal AppUser appUser, @PathVariable int crystalId) {
+
 
         Crystal specificCrystal = crystalService.findCrystalById(crystalId);
         if (specificCrystal == null) {
