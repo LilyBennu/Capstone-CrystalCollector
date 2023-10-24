@@ -87,7 +87,7 @@ Authorization: Bearer {{token}}
 
 ####
 
-DELETE {{url}}/4 HTTP/1.1
+DELETE {{url}}/remove/4 HTTP/1.1
 Authorization: Bearer {{token}}
 
 ####

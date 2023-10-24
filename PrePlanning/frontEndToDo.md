@@ -45,26 +45,26 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 ### configure App.js ###
 [30 MINS MAX] [actual?: ]
 
-- import everything
-- make da Routes! [MAKE SURE THEY MATCH THE PATHS/ DONT ID/AGENTID YOURSELF AGAIN LMAO] (wrap in AuthContext)
+- import everything [*]
+- make da Routes! [MAKE SURE THEY MATCH THE PATHS/ DONT ID/AGENTID YOURSELF AGAIN LMAO] (wrap in AuthContext) [*]
 - add useEffect for logging in 
 
 
 =================================
 
-### configure NavBar component ###
+### configure NavBar component ### [DONE]
 
 [1 HR MAX] [actual?: ]
 
-- import Link and everything else
-- make NavBar
+- import Link and everything else [*]
+- make NavBar [*]
     - *how do i make the navbar only appear completely when someone is signed in, is it possible?*
     logout button on right
-    - home/ welcome
-    - crystals 
-    - blurbs 
-    - about 
-    - contact 
+    - home/ welcome [*]
+    - crystals [*]
+    - blurbs [*]
+    - about [*]
+    - contact [*]
     - can i add sparkles to the nav bar??? something need to be glittery on this site!!!!!
 
 
