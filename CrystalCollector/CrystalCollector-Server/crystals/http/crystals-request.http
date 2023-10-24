@@ -5,6 +5,7 @@
 
 @token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODEwOTYzNn0.Nm54c_KecwC7dvf_zUPQZ886bzSjt6lfOQm-MANfoK8
 
+//SIGN IN
 
 POST {{url}}/sign-in HTTP/1.1 
 Content-Type: application/json
@@ -15,7 +16,7 @@ Content-Type: application/json
 }
 
 ####
-
+//SIGN UP
 POST {{url}}/sign-up HTTP/1.1
 Content-Type: application/json
 
@@ -26,27 +27,27 @@ Content-Type: application/json
 
 
 ####
-
+//REFRESH TOKEN
 POST {{url}}/refresh-token HTTP/1.1
 Accept: application/json
 Authorization: Bearer {{token}}
 
 
 ####
-
+//VIEW ALL CRYSTALS
 GET {{url}}/list HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ####
-
+// VIEW CRYSTAL BY ID
 GET {{url}}/detail/4 HTTP/1.1 
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-// make some crystals first
-####
 
+####
+// ADD CRYSTAL
 POST {{url}}/add HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -66,7 +67,7 @@ Authorization: Bearer {{token}}
 }
 
 ####
-
+// UPDATE CRYSTAL
 PUT {{url}}/update/1 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -86,24 +87,24 @@ Authorization: Bearer {{token}}
 }
 
 ####
-
+// REMOVE CRYSTAL
 DELETE {{url}}/remove/4 HTTP/1.1
 Authorization: Bearer {{token}}
 
 ####
-
+// VIEW ALL BLURBS
 
 GET {{url}}/blurbs/list HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ####
-
+// BLURB BY ID
 GET {{url}}/blurbs/detail/4 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 ####
-
+// ADD A BLURB
 POST  {{url}}/blurbs/add HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -116,7 +117,7 @@ Authorization: Bearer {{token}}
 }
 
 ####
-
+// UPDATE BLURB
 PUT  {{url}}/blurbs/update/1 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -131,6 +132,6 @@ Authorization: Bearer {{token}}
 }
 
 ####
-
+// DELETE BLURB BY ID
 DELETE {{url}}/blurbs/delete/4
 Authorization: Bearer {{token}}

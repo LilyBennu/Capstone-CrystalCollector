@@ -223,5 +223,15 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - configure viewAllCrystals 
 - configure blurbs cards
 - configure viewAllBlurbs
+- do i need DisplayCrystals component?????
+- make crystal collection page 
+- make blurbs page
+
+- can i even do AWS at this point *cries*
+
+- make error page
+- about 
+- contact 
+- not found
 
 
