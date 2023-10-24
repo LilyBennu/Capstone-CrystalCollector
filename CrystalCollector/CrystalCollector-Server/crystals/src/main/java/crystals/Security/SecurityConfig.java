@@ -37,9 +37,7 @@ public class SecurityConfig {
         // the order of the antMatchers() method calls is important
         // as they're evaluated in the order that they're added
 
-        // change these for my paths, i think change everything to authorize/ permitAll
-        // naw some or maybe even all of them need to be authority(USER)
-        // also what order should these go in??? do GETS - POSTS - PUT - DELETE
+
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/crystals/sign-in").permitAll()
                 .antMatchers(HttpMethod.POST, "/crystals/sign-up").permitAll()

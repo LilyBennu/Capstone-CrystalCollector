@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { register } from "../services/authAPI";
+import { signUp } from "../services/authAPI";
 
 import ValidationSummary from "./ValidationSummary";
+
+import "../styles/signup.css";
 
 function SignUpForm() {
   const [errors, setErrors] = useState([]);
@@ -27,7 +29,7 @@ function SignUpForm() {
       return;
     }
 
-    register(credentials).then((data) => {
+    signUp(credentials).then((data) => {
       if (data && data.errors) {
         setErrors(data.errors);
       } else {
@@ -41,7 +43,7 @@ function SignUpForm() {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <ValidationSummary errors={errors} />
       {success ? (
         <div className="alert alert-success">
@@ -51,11 +53,11 @@ function SignUpForm() {
       ) : (
         <form onSubmit={handleSubmit}>
           <div>
-            <div className="form-group">
-              <label htmlFor="label">Username</label>
+            <div className="signup-form-group">
+              <label htmlFor="signup-label">Username</label>
               <input
-                type="text"
-                className="form-control"
+                type="signup-text"
+                className="signup-form-control"
                 id="username"
                 name="username"
                 value={credentials.username}
@@ -63,11 +65,11 @@ function SignUpForm() {
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="label">Password</label>
+            <div className="signup-form-group">
+              <label htmlFor="signup-label">Password</label>
               <input
                 type="password"
-                className="form-control"
+                className="signup-form-control"
                 id="password"
                 name="password"
                 value={credentials.password}
@@ -75,11 +77,11 @@ function SignUpForm() {
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="label">Confirm password</label>
+            <div className="signup-form-group">
+              <label htmlFor="signup-label">Confirm password</label>
               <input
                 type="password"
-                className="form-control"
+                className="signup-form-control"
                 id="confirmPassword"
                 name="confirmPassword"
                 value={credentials.confirmPassword}
@@ -88,10 +90,10 @@ function SignUpForm() {
               />
             </div>
             <div>
-              <Link to="/" className="btn btn-secondary">
+              <Link to="/" className="signup-btn btn-secondary">
                 Cancel
               </Link>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="signup-btn btn-primary">
                 Sign up
               </button>
             </div>

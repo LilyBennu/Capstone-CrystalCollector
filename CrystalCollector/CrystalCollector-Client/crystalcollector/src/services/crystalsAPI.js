@@ -1,9 +1,11 @@
-const url = `${process.env.REACT_APP_URL}`;
+const url = `${process.env.REACT_APP_API_URL}`;
 
 
 // VIEW ALL CRYSTALS
 export async function viewAllCrystals() {
-    const response = await fetch(`${url}/list`);
+    const response = await fetch(`${url}/list`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem("jwt_token")}`}
+    });
     if (response.status === 200) {
         return response.json();
     } else { 
@@ -13,7 +15,9 @@ export async function viewAllCrystals() {
 
 // FIND CRYSTAL BY ID
 export async function findCrystalById(crystalId) {
-    const response = await fetch(`${url}/detail/${crystalId}`);
+    const response = await fetch(`${url}/detail/${crystalId}`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem("jwt_token")}`}
+    });
     if (response.status === 200) {
         return response.json();
     } else if (response.status === 404) {

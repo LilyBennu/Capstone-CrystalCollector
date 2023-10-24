@@ -18,7 +18,7 @@ import SignInForm from "./components/SignInForm";
 import SignUpForm from "./components/SignUpForm";
 import Welcome from "./pages/Welcome";
 
-import { refreshToken, logout } from "./services/authAPI";
+import { refreshToken, signOut } from "./services/authAPI";
 
 const TIMEOUT_MILLISECONDS = 14 * 60 * 1000;
 
@@ -52,8 +52,8 @@ function App() {
     hasAuthority(authority) {
       return user?.authorities.includes(authority);
     },
-    logout() {
-      logout();
+    signout() {
+      signOut();
       setUser(null);
     },
   };
@@ -91,6 +91,7 @@ function App() {
                 <Route path="/about" element={ <About /> } />
                 <Route path="/contact" element={ <Contact /> } />
                 <Route path="/blurbsform" element={ <BlurbsForm /> } />
+                <Route path="/blurbsform/:blurbsId" element={ <BlurbsForm /> } />
                 <Route path="/crystalform" element={ <CrystalForm /> } />
                 <Route path="/error" element={ <Error /> } />
                 <Route path="*" element={ <NotFound /> } />

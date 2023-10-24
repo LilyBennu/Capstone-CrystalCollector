@@ -210,24 +210,31 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 - add authorization for roles on path in app (renderWithAuthority)
 - update NavBar with context
-- connect sign in form to sign in button
-- connect sign up form to sign up button
-- does sign in and sign out work?
+
+- connect sign in form to sign in button [DONE]
+- connect sign up form to sign up button [DONE]
+- does sign in and sign out work? SIGN IN? [DONE]    SIGN OUT?
+
 - in app route paths add element = { !user ? <SignIn>}
     - element = {user ? <MostComponents />}
-- add/update blurb form
+
+- add/update blurb form [DONE] (working in browser too yaaaay)
 - add/ update crystal form
+ 
 - confirm delete crystal page
 - confirm delte blurbs page
+
 - configure crystal cards
 - configure viewAllCrystals 
+
 - configure blurbs cards
 - configure viewAllBlurbs
+
 - do i need DisplayCrystals component?????
 - make crystal collection page 
 - make blurbs page
 
-- can i even do AWS at this point *cries*
+- can i even do AWS at this point *cries* YES YOU CAN
 
 - make error page
 - about 

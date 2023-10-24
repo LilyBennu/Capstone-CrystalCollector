@@ -41,7 +41,7 @@ import java.util.Map;
 
         @PostMapping("/crystals/sign-in")
         public ResponseEntity<?> signIn(@RequestBody Map<String, String> credentials) {
-                            // is this username and password from sql?
+
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                     credentials.get("username"), credentials.get("password"));
 

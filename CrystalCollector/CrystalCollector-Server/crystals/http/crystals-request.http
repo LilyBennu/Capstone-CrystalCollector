@@ -3,7 +3,7 @@
 ####
 
 
-@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODEwOTYzNn0.Nm54c_KecwC7dvf_zUPQZ886bzSjt6lfOQm-MANfoK8
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODE4OTIzMn0.eI71b_7Rm1QVNNAN9DvJGCU0H0tDygFznrGfzjcxJ08
 
 //SIGN IN
 
@@ -100,7 +100,7 @@ Authorization: Bearer {{token}}
 
 ####
 // BLURB BY ID
-GET {{url}}/blurbs/detail/4 HTTP/1.1
+GET {{url}}/blurbs/detail/5 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 ####

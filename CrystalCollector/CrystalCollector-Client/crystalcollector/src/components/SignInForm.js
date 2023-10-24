@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../services/authAPI";
+import { signIn } from "../services/authAPI";
 
 import AuthContext from "../contexts/AuthContext";
 import ValidationSummary from "./ValidationSummary";
+
+import "../styles/signinform.css";
 
 function SignInForm() {
   const [credentials, setCredentials] = useState({
@@ -19,7 +21,7 @@ function SignInForm() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setErrors([]);
-    login(credentials)
+    signIn(credentials)
       .then(user => {
         handleLoggedIn(user);
         navigate("/");
@@ -36,11 +38,11 @@ function SignInForm() {
   };
 
   return (
-    <div>
+    <div className="signin-container">
       <ValidationSummary errors={errors} />
       <form onSubmit={handleSubmit}>
         <div>
-          <div className="form-group">
+          <div className="signin-form-group">
             <label htmlFor="label">Username</label>
             <input
               type="text"
@@ -52,7 +54,7 @@ function SignInForm() {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="signin-form-group">
             <label htmlFor="label">Password</label>
             <input
               type="password"
@@ -65,10 +67,10 @@ function SignInForm() {
             />
           </div>
           <div>
-            <Link to="/" className="btn btn-secondary">
+            <Link to="/" className="signin-btn btn-secondary">
               Cancel
             </Link>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="signin-btn btn-primary">
               Log in
             </button>
           </div>

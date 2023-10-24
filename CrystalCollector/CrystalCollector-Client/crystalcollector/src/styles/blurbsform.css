@@ -1,0 +1,63 @@
+/* Apply this CSS to your BlurbsForm component or import it in the component's CSS file (blurbsform.css) */
+
+.blurbsform-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blurbs-form {
+    width: 100%;
+  }
+  
+  .blurbs-form-group {
+    margin: 10px 0;
+  }
+  
+  .blurbs-form-group label {
+    display: block;
+  }
+  
+  .blurbs-form-group input[type="text"],
+  .blurbs-form-group input[type="url"],
+  .blurbs-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .blurbs-btn.btn-secondary {
+    background-color: #b51189;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .blurbs-btn.btn-primary {
+    background-color: #b51189;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+  
+  .blurbs-btn.btn-secondary:hover,
+  .blurbs-btn.btn-primary:hover {
+    background-color: #cc7ccf;
+  }
+  

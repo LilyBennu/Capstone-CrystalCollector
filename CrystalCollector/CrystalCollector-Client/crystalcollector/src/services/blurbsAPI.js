@@ -1,9 +1,11 @@
-const url = `${process.env.REACT_APP_URL}`;
+const url = `${process.env.REACT_APP_API_URL}`;
 
 
 // FIND ALL BLURBS
 export async function findAllBlurbs() {
-    const response = await fetch(`${url}/blurbs/list`);
+    const response = await fetch(`${url}/blurbs/list`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem("jwt_token")}`}
+    });
     if (response.status === 200) {
         return response.json();
     } else { 
@@ -13,7 +15,9 @@ export async function findAllBlurbs() {
 
 // FIND BLURB BY ID
 export async function findBlurbById(blurbsId) {
-    const response = await fetch(`${url}/blurbs/detail/${blurbsId}`);
+    const response = await fetch(`${url}/blurbs/detail/${blurbsId}`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem("jwt_token")}`}
+    });
     if (response.status === 200) {
         return response.json();
     } else if (response.status === 404) {
