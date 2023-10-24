@@ -25,30 +25,83 @@ const TIMEOUT_MILLISECONDS = 14 * 60 * 1000;
 function App() {
 
   const [user, setUser] = useState();
+  const [initialized, setInitialized] = useState(false);
+
+  const resetUser = useCallback(() => {
+    refreshToken()
+      .then((user) => {
+        setUser(user);
+        setTimeout(resetUser, TIMEOUT_MILLISECONDS);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setInitialized(true));
+  }, []);
+
+  useEffect(() => {
+    resetUser();
+  }, [resetUser]);
+
+  const auth = {
+    user: user,
+    handleLoggedIn(user) {
+      setUser(user);
+      setTimeout(resetUser, TIMEOUT_MILLISECONDS);
+    },
+    hasAuthority(authority) {
+      return user?.authorities.includes(authority);
+    },
+    logout() {
+      logout();
+      setUser(null);
+    },
+  };
+
+  if (!initialized) {
+    return null;
+  }
+
+  const renderWithAuthority = (Component, ...authorities) => {
+    for (let authority of authorities) {
+      if (auth.hasAuthority(authority)) {
+        return <Component />;
+      }
+    }
+    return <Error />;
+  };
 
 
 
   return (
-  <Router>
-    <Header/>
-    <Routes>
-      <Route path="/" element={ <SignIn /> } />
-      <Route path="/signin" element={ <SignInForm /> } />
-      <Route path="/signup" element={ <SignUpForm /> } />
-      <Route path="/welcome" element={ <Welcome /> } />
-      <Route path="/crystals" element={ <CrystalCollection /> } />
-      <Route path="/crystals/detail/:crystalId" element={ <CrystalDetail /> } />
-      <Route path="/blurbs" element={ <Blurbs /> } />
-      <Route path="/blurbs/detail/:blurbsId" element={ <BlurbsDetail /> } />
-      <Route path="/about" element={ <About /> } />
-      <Route path="/contact" element={ <Contact /> } />
-      <Route path="/blurbsform" element={ <BlurbsForm /> } />
-      <Route path="/crystalform" element={ <CrystalForm /> } />
-      <Route path="/error" element={ <Error /> } />
-      <Route path="*" element={ <NotFound /> } />
-      
-    </Routes>
-  </Router>
+
+    <div className="route-container">
+        <AuthContext.Provider value={auth}>
+          <Router>
+              <Header/>
+              <Routes>
+                <Route path="/" element={ <SignIn /> } />
+                <Route path="/signin" element={ <SignInForm /> } />
+                <Route path="/signup" element={ <SignUpForm /> } />
+                <Route path="/welcome" element={ <Welcome /> } />
+                <Route path="/crystals" element={ <CrystalCollection /> } />
+                <Route path="/crystals/detail/:crystalId" element={ <CrystalDetail /> } />
+                <Route path="/blurbs" element={ <Blurbs /> } />
+                <Route path="/blurbs/detail/:blurbsId" element={ <BlurbsDetail /> } />
+                <Route path="/about" element={ <About /> } />
+                <Route path="/contact" element={ <Contact /> } />
+                <Route path="/blurbsform" element={ <BlurbsForm /> } />
+                <Route path="/crystalform" element={ <CrystalForm /> } />
+                <Route path="/error" element={ <Error /> } />
+                <Route path="*" element={ <NotFound /> } />
+                
+              </Routes>
+          </Router>
+        </AuthContext.Provider>
+
+    </div>
+    
+
   );
 }
 

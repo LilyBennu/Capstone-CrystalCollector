@@ -87,7 +87,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 *many of these components will be connected to endpoints/ paths in controller, need to think about that!!!!!*
 
-### login/ sign up page ### 
+### login/ sign up page ### [DONE]
 [EST: ] [actual?: ]
 
 - sign in button 
@@ -204,4 +204,24 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - glitter ?????!!!!!!!!
 - css animations on the welcome page 
 - how can i make everything pretty afffffff?!?!?!?!?!?
+==================================================================
+
+### Tuesday to do ###
+
+- add authorization for roles on path in app (renderWithAuthority)
+- update NavBar with context
+- connect sign in form to sign in button
+- connect sign up form to sign up button
+- does sign in and sign out work?
+- in app route paths add element = { !user ? <SignIn>}
+    - element = {user ? <MostComponents />}
+- add/update blurb form
+- add/ update crystal form
+- confirm delete crystal page
+- confirm delte blurbs page
+- configure crystal cards
+- configure viewAllCrystals 
+- configure blurbs cards
+- configure viewAllBlurbs
+
 
