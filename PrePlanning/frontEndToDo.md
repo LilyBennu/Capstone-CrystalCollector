@@ -251,16 +251,24 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - blurb images not showing 
 - update crystal not working causes error on submit
 - same for blurbs, same error
+- don't i need to add these new image upload paths to security config???
+- what about the CORS in App?
 
 ==============================================================
 
 ### wednesday to do ###
 
 - complete viewCrystalDetails page or whatevs its called
+
 - AWS S3!!!!!!!!
     - signed up for account
     - created crystalcollectorbucket 
     - npm installed aws-sdk
+    - added aws s3 dependency 
+    - added image upload controller
+- add credentials in Run - Edit Configurations
+- add code to front end
+*
 - NEED TO BE ABLE TO SIGN OUT
 - TEST SIGN UP
 - make error page

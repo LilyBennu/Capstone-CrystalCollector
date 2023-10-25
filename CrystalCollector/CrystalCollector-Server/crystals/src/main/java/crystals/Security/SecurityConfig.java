@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/crystals/sign-in").permitAll()
                 .antMatchers(HttpMethod.POST, "/crystals/sign-up").permitAll()
                 .antMatchers(HttpMethod.POST, "/crystals/refresh-token").authenticated()
+                .antMatchers(HttpMethod.POST, "/crystals/upload").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.GET, "/crystals/list").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.GET, "/crystals/detail/{crystalId}").hasAnyAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/crystals/add").hasAnyAuthority("USER")

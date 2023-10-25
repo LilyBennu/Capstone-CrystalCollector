@@ -53,7 +53,7 @@ export async function addOrUpdateBlurbs(blurbs) {
           return Promise.reject(
             `Blurb Id: ${blurbs.blurbsId} was not found.`
           );
-        } else if (response.status !== 204) {
+        } else if (response.status !== 202) {
           return Promise.reject("An unexpected error occurred.");
         }
       } else {

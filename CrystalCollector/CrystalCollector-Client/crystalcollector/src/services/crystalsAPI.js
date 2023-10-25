@@ -53,7 +53,7 @@ export async function addOrUpdateCrystal(crystal) {
           return Promise.reject(
             `Crystal Id: ${crystal.crystalId} was not found.`
           );
-        } else if (response.status !== 204) {
+        } else if (response.status !== 202) {
           return Promise.reject("An unexpected error occurred.");
         }
       } else {
