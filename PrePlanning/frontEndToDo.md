@@ -219,7 +219,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
     - element = {user ? <MostComponents />}
 
 - add/update blurb form [DONE] (working in browser too yaaaay)
-- add/ update crystal form
+- add/ update crystal form [DONE]
  
 - confirm delete crystal page
 - confirm delte blurbs page
@@ -240,5 +240,11 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - about 
 - contact 
 - not found
+
+==================================================================
+
+### help needed for wednesda ###
+
+- crystalform is angry onSubmit
 
 

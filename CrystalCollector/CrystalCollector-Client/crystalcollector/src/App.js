@@ -72,7 +72,7 @@ function App() {
   };
 
 
-
+//add Route paths for confirm delete blurb and crystal use :ID
   return (
 
     <div className="route-container">
@@ -93,6 +93,8 @@ function App() {
                 <Route path="/blurbsform" element={ <BlurbsForm /> } />
                 <Route path="/blurbsform/:blurbsId" element={ <BlurbsForm /> } />
                 <Route path="/crystalform" element={ <CrystalForm /> } />
+                <Route path="/crystalform/:crystalId" element={ <CrystalForm /> } />
+                
                 <Route path="/error" element={ <Error /> } />
                 <Route path="*" element={ <NotFound /> } />
                 
