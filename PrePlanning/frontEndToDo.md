@@ -224,15 +224,15 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - confirm delete crystal page
 - confirm delte blurbs page
 
-- configure crystal cards
-- configure viewAllCrystals 
+- configure crystal cards [DONE]
+- configure viewAllCrystals [DONE]
 
 - configure blurbs cards [DONE]
 - configure viewAllBlurbs [DONE]
 
-- do i need DisplayCrystals component?????
-- make crystal collection page 
-- make blurbs page
+- do i need DisplayCrystals component????? *NO*
+- make crystal collection page [DONE]
+- make blurbs page [DONE]
 
 - can i even do AWS at this point *cries* YES YOU CAN
 

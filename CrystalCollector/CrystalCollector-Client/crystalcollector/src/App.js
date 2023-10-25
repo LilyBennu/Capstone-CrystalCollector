@@ -8,10 +8,12 @@ import AuthContext from "./contexts/AuthContext";
 import Blurbs from "./pages/Blurbs";
 import BlurbsDetail from "./pages/BlurbsDetail";
 import BlurbsForm from "./components/BlurbsForm";
+import ConfirmDeleteBlurb from "./components/ConfirmDeleteBlurb";
 import Contact from "./pages/Contact";
 import CrystalCollection from "./pages/CrystalCollection";
 import CrystalDetail from "./pages/CrystalDetail";
 import CrystalForm from "./components/CrystalForm";
+import ConfirmRemoveCrystal from "./components/ConfirmRemoveCrystal";
 import Error from "./pages/Error";
 import SignIn from "./pages/SignIn";
 import SignInForm from "./components/SignInForm";
@@ -94,7 +96,8 @@ function App() {
                 <Route path="/blurbsform/:blurbsId" element={ <BlurbsForm /> } />
                 <Route path="/crystalform" element={ <CrystalForm /> } />
                 <Route path="/crystalform/:crystalId" element={ <CrystalForm /> } />
-                
+                <Route path="/crystal/remove/:crystalId" element={ <ConfirmRemoveCrystal /> } />
+                <Route path="/blurbs/delete/:blurbsId" element={ <ConfirmDeleteBlurb /> } />
                 <Route path="/error" element={ <Error /> } />
                 <Route path="*" element={ <NotFound /> } />
                 

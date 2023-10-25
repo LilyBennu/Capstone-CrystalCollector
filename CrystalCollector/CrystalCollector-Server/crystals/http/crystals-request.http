@@ -3,10 +3,9 @@
 ####
 
 
-@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODIxMzMxN30.j__zn4wsai_QYxlZNV5u_YjLtfhiFGjrMmjXLR-6csw
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjcnlzdGFscy1hcGkiLCJzdWIiOiJpc3NhTWVMSUxZISIsImFwcF91c2VyX2lkIjo1LCJhdXRob3JpdGllcyI6WyJVU0VSIl0sImV4cCI6MTY5ODIyMjE2OX0.ZrVoaUcmlM11GMDlnxcXZtB_6PwWLaCCb9uq_-ziIgI
 
 //SIGN IN
-
 POST {{url}}/sign-in HTTP/1.1 
 Content-Type: application/json
 

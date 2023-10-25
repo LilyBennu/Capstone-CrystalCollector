@@ -21,7 +21,7 @@ function CrystalCards({ crystal }) {
                     <Link to={`/crystalform/${crystal.crystalId}`} className="crystal-card-edit-btn">
                         Edit
                     </Link>
-                    <Link to={``} className="crystal-delete-btn">
+                    <Link to={`/crystal/remove/${crystal.crystalId}`} className="crystal-delete-btn">
                         Remove
                     </Link>
 

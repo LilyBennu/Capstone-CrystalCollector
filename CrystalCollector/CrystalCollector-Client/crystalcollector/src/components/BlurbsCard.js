@@ -16,10 +16,10 @@ function BlurbsCard({ blurbs }) {
                     <p className="blurb-card-textbody">{blurbs.textBody}</p>
                 </div>
                 <img src={blurbs.imageUrl} className="card-image-bottom" alt={blurbs.title} />
-                <Link to={`/blurbsform/${blurbs.blursbId}`} className="blurb-card-edit-btn">
+                <Link to={`/blurbsform/${blurbs.blurbsId}`} className="blurb-card-edit-btn">
                     Edit
                 </Link>
-                <Link to={``} className="blurb-card-delete-btn">
+                <Link to={`/blurbs/delete/${blurbs.blurbsId}`} className="blurb-card-delete-btn">
                     Delete
                 </Link>
             </div>
