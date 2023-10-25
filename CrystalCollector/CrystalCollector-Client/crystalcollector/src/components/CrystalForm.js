@@ -16,15 +16,16 @@ import "../styles/crystalform.css";
         notes: "",
         raw: false,
         inCollection: false,
-        crystalSpecification: "",
+        crystalSpecification: "REGULAR",
         imageUrl: "",
         appUserId: 0
     };
 
 function CrystalForm() {
 
-    const [crystal, setCrystal] = useState([]);
+    const [crystal, setCrystal] = useState(INITIAL_CRYSTAL);
     const [errors, setErrors] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const navigate = useNavigate();
     const { crystalId } = useParams();
@@ -56,17 +57,57 @@ function CrystalForm() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        addOrUpdateCrystal(crystal).then((data) => {
-          if (data?.errors) {
-            setErrors(data.errors);
-          } else {
-            navigate("/crystals", {
-              state: { message: `${crystal.title} saved!` },
+        if (selectedFile) {
+            const formData = new FormData();
+            formData.append("file", selectedFile, selectedFile.name);
+            const jwtToken = localStorage.getItem("jwt_token");
+    
+            const init = {
+                method: "POST",
+                body: formData,
+                headers: { Authorization: "Bearer " + jwtToken }
+    
+            };
+
+            fetch("http://localhost:8080/crystals/upload", init)
+            .then((res) => {
+                console.log(res)
+                return res.text();
+            })
+            .then(imgUrl => {
+                
+                addOrUpdateCrystal({...crystal, imageUrl: imgUrl}).then((data) => {
+                    if (data?.errors) {
+                      setErrors(data.errors);
+                    } else {
+                      navigate("/crystals", {
+                        state: { message: `${crystal.title} saved!` },
+                      });
+                    }
+                  });
+            })
+            .catch(console.error);
+        } else {
+            addOrUpdateCrystal(crystal).then((data) => {
+                if (data?.errors) {
+                setErrors(data.errors);
+                } else {
+                navigate("/crystals", {
+                    state: { message: `${crystal.title} saved!` },
+                });
+                }
             });
-          }
-        });
+        }
+
+        
     };
 
+    
+
+    const handleFileChange = (evt) => {
+        const file = evt.target.files[0];
+        setSelectedFile(file);
+    };
 
 
     return (
@@ -162,7 +203,10 @@ function CrystalForm() {
                             <option value="JEWELRY">Jewelry</option>
                         </select>
                     </div>
-
+                    <div className="crystalform-group">
+                    <label className="upload-image-label" htmlFor="image">Upload Image</label>
+                        <input type="file" onChange={handleFileChange} />
+                    </div>
                     <div className="crystalform-group">
                         <label htmlFor="imageUrl">Image URL</label>
                         <input

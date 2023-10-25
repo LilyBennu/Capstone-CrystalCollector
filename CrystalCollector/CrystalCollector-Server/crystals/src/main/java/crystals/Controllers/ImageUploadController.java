@@ -8,10 +8,12 @@ import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.GetUrlRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 import java.io.IOException;
+import java.net.URL;
 
 @RestController
 public class ImageUploadController {
@@ -31,8 +33,15 @@ public class ImageUploadController {
                     .build();
 
             PutObjectResponse response = s3.putObject(request, RequestBody.fromBytes(file.getBytes()));
+            GetUrlRequest imageUrl = GetUrlRequest.builder()
+                    .bucket("crystalcollectorbucket")
+                    .key(file.getOriginalFilename())
+                    .build();
 
-            return new ResponseEntity<>(response.eTag(), HttpStatus.CREATED);
+            URL url = s3.utilities().getUrl(imageUrl);
+            System.out.println("The URL for  "+file.getOriginalFilename() +" is "+url.toString());
+
+            return new ResponseEntity<>(url.toString(), HttpStatus.CREATED);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

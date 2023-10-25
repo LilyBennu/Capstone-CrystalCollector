@@ -37,7 +37,7 @@ byId("btnUpload").addEventListener("click", function () {
         body: formData
     };
 
-    fetch("/upload", init)
+    fetch("/crystals/upload", init)
         .then(() => console.log("success!"))
         .catch(console.error);
 });

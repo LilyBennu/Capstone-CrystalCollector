@@ -266,8 +266,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
     - npm installed aws-sdk
     - added aws s3 dependency 
     - added image upload controller
-- add credentials in Run - Edit Configurations
-- add code to front end
+- add credentials in Run - Edit Configurations [DONE]
+- add code to front end [DONE]
 *
 - NEED TO BE ABLE TO SIGN OUT
 - TEST SIGN UP

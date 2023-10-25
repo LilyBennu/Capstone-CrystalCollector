@@ -24,7 +24,7 @@ function SignInForm() {
     signIn(credentials)
       .then(user => {
         handleLoggedIn(user);
-        navigate("/");
+        navigate("/welcome");
       })
       .catch(err => {
         setErrors(['Invalid username/password.']);
