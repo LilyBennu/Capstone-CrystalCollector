@@ -60,7 +60,7 @@ function CrystalForm() {
           if (data?.errors) {
             setErrors(data.errors);
           } else {
-            navigate("/list", {
+            navigate("/crystals", {
               state: { message: `${crystal.title} saved!` },
             });
           }
@@ -79,7 +79,7 @@ function CrystalForm() {
                         <input
                             type="text"
                             name="name"
-                            value={crystal.name}
+                            value={crystal.crystalName}
                             onChange={handleChange}
                         />
                     </div>
@@ -175,7 +175,7 @@ function CrystalForm() {
                     <div className="crystalform-buttons">
 
                         <button type="submit">Submit</button>
-                        <Link to="/list" className="blurbs-btn btn-secondary">
+                        <Link to="/crystals" className="blurbs-btn btn-secondary">
                         Cancel
                         </Link>
                     </div>

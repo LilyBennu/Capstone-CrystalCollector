@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 import{ findBlurbById, addOrUpdateBlurbs } from "../services/blurbsAPI";
+
 import ValidationSummary from "./ValidationSummary";
 
 import "../styles/blurbsform.css";
@@ -51,7 +52,7 @@ function BlurbsForm() {
           if (data?.errors) {
             setErrors(data.errors);
           } else {
-            navigate("/blurbs/list", {
+            navigate("/blurbs", {
               state: { message: `${blurbs.title} saved!` },
             });
           }
@@ -96,13 +97,14 @@ function BlurbsForm() {
                     </div>
 
                     <div>
-                        <Link to="/blurbs/list" className="blurbs-btn btn-secondary">
+                        <Link to="/blurbs" className="blurbs-btn btn-secondary">
                         Cancel
                         </Link>
                         <button type="submit" className="blurbs-btn btn-primary">
                         Save
                         </button>
                     </div>
+
                 </form>
 
             </div>
