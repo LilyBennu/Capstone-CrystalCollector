@@ -221,8 +221,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - add/update blurb form [DONE] (working in browser too yaaaay)
 - add/ update crystal form [DONE]
  
-- confirm delete crystal page
-- confirm delte blurbs page
+- confirm delete crystal page [DONE]
+- confirm delte blurbs page [DONE]
 
 - configure crystal cards [DONE]
 - configure viewAllCrystals [DONE]
@@ -235,7 +235,34 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - make blurbs page [DONE]
 
 - can i even do AWS at this point *cries* YES YOU CAN
+=============================================================
 
+### what is working??!!!!!! ###
+- add crystal works!!!
+- viewAllCrystals works!!
+- add blurb is working !!!
+- delete blurb works
+- delete crystal works
+
+==================================================================
+
+### help needed for wednesday ###
+
+- blurb images not showing 
+- update crystal not working causes error on submit
+- same for blurbs, same error
+
+==============================================================
+
+### wednesday to do ###
+
+- complete viewCrystalDetails page or whatevs its called
+- AWS S3!!!!!!!!
+    - signed up for account
+    - created crystalcollectorbucket 
+    - npm installed aws-sdk
+- NEED TO BE ABLE TO SIGN OUT
+- TEST SIGN UP
 - make error page
 - about 
 - contact 
@@ -243,8 +270,13 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ==================================================================
 
-### help needed for wednesda ###
+### thursday to do ###
 
-- crystalform is angry onSubmit
+- enter in hella crystal into issaMeLily!
+- enter fakey cakes crystals into Anti-Lily's profile
+- same for blurbs
+- modify .js files to have uniform look, change names back to normal low key
+- ADD SOME MFN SPARKLES SOMEWHERE
+- aaaaaaah make these slides for the presentation
 
 

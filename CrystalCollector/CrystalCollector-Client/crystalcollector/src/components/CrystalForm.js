@@ -75,10 +75,10 @@ function CrystalForm() {
             <div className="crystal-form">
                 <form onSubmit={handleSubmit}>
                     <div className="crystalform-group">
-                        <label htmlFor="name">Crystal Name</label>
+                        <label htmlFor="crystalName">Crystal Name</label>
                         <input
                             type="text"
-                            name="name"
+                            name="crystalName"
                             value={crystal.crystalName}
                             onChange={handleChange}
                         />
