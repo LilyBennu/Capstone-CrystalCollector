@@ -29,11 +29,9 @@ function Blurbs() {
             </div>
 
             <div className="add-blurb-button">
-                {user && (
-                <Link to="/blurbsform" className="btn btn-secondary">
+                <Link to="/blurbsform" className="btn">
                     Add A Blurb
                 </Link>
-                )}
             </div>  
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4">
                 {blurbs.length === 0 ? (

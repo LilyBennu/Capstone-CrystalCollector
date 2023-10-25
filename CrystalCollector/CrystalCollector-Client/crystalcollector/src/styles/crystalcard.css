@@ -1,0 +1,54 @@
+
+
+.crystal-card-container {
+    width: 33%; /* Display three cards in a row */
+    padding: 10px;
+    box-sizing: border-box;
+    float: left;
+  }
+  
+  .crystal-card {
+    border: 1px solid #c0c0c0;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-image-top {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Adjust the max height as needed */
+  }
+  
+  .crystal-card-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .crystal-card-state-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .crystal-card-view-btn,
+  .crystal-card-edit-btn,
+  .crystal-delete-btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid #b65b93;
+    color: #431042;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .crystal-card-view-btn:hover,
+  .crystal-card-edit-btn:hover,
+  .crystal-delete-btn:hover {
+    background-color: #7e318e;
+    color: #0d0d0d;
+  }
+  
+  /* Additional styling can be added as needed */
+  

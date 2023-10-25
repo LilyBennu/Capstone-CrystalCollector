@@ -227,8 +227,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - configure crystal cards
 - configure viewAllCrystals 
 
-- configure blurbs cards
-- configure viewAllBlurbs
+- configure blurbs cards [DONE]
+- configure viewAllBlurbs [DONE]
 
 - do i need DisplayCrystals component?????
 - make crystal collection page 
