@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { findAllBlurbs } from "../services/blurbsAPI";
 import BlurbsCard from "../components/BlurbsCard";
+import "../styles/blurbspage.css"
 
 import AuthContext from "../contexts/AuthContext";
 
@@ -29,7 +30,7 @@ function Blurbs() {
             </div>
 
             <div className="add-blurb-button">
-                <Link to="/blurbsform" className="btn">
+                <Link to="/blurbsform" className="add-blurb-btn">
                     Add A Blurb
                 </Link>
             </div>  

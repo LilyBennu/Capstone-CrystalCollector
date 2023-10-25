@@ -1,5 +1,6 @@
 import { useContext  } from "react";
 import { Link } from "react-router-dom";
+import "../styles/blurbscard.css"
 
 import AuthContext from "../contexts/AuthContext";
 

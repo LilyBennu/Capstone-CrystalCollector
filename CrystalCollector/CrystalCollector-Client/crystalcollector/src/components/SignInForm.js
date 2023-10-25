@@ -38,7 +38,7 @@ function SignInForm() {
   };
 
   return (
-    <div className="signin-container">
+    <div className="signin-form-container">
       <ValidationSummary errors={errors} />
       <form onSubmit={handleSubmit}>
         <div>
@@ -67,12 +67,12 @@ function SignInForm() {
             />
           </div>
           <div>
-            <Link to="/" className="signin-btn btn-secondary">
+            <button type="submit" className="signin-form-btn">
+              Sign In
+            </button>
+            <Link to="/" className="signin-form-btn">
               Cancel
             </Link>
-            <button type="submit" className="signin-btn btn-primary">
-              Log in
-            </button>
           </div>
         </div>
       </form>

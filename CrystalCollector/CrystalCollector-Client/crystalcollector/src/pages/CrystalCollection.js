@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { viewAllCrystals } from "../services/crystalsAPI";
 import CrystalCards from "../components/CrystalCards";
+import "../styles/crystalcollection.css";
 
 import AuthContext from "../contexts/AuthContext";
 
@@ -27,7 +28,7 @@ function CrystalCollection() {
                 <h1> {user.username}'s Crystal Collection! </h1>
             </div>
             <div className="add-crystal-button">
-                <Link to="/crystalform" className="btn">
+                <Link to="/crystalform" className="crystal-add-btn">
                     Add a Crystal
                 </Link>
             </div>

@@ -37,7 +37,7 @@
     padding: 8px 12px;
     border: 1px solid #b65b93;
     color: #431042;
-    background-color: #fff;
+    background-color: #ce8aba;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -50,5 +50,5 @@
     color: #0d0d0d;
   }
   
-  /* Additional styling can be added as needed */
+  
   

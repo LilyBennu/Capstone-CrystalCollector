@@ -1,0 +1,61 @@
+
+.blurb-card-container {
+    max-width: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: #d448af;
+    border: 2px solid;
+    margin-top: 30px;
+  }
+  
+  .blurbs-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .blurb-card-title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #7a0e54;
+  }
+  
+  .blurb-card-textbody {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .card-image-bottom {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .blurb-card-edit-btn,
+  .blurb-card-delete-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #b51189;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .blurb-card-edit-btn:hover,
+  .blurb-card-delete-btn:hover {
+    background-color: #cc7ccf;
+  }
+  
