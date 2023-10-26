@@ -271,7 +271,8 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 *
 - NEED TO BE ABLE TO SIGN OUT
 - TEST SIGN UP [DONE]
-- make error page
+
+- make error page (add image and sign in or sign up statement)
 - about 
 - contact 
 - not found
@@ -280,19 +281,30 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ### thursday to do ###
 
+- complete viewCrystalDetails page or whatevs its called
+
+- make error page 
+- about 
+- contact 
+- not found
+
 - enter in hella crystal into issaMeLily!
 - enter fakey cakes crystals into Anti-Lily's profile
 - same for blurbs
 - modify .js files to have uniform look, change names back to normal low key
 - ADD SOME MFN SPARKLES SOMEWHERE
+
 - aaaaaaah make these slides for the presentation
-- COMPLETE AND FIX BACKEND DATA TESTS GUUUURL 
+
+- COMPLETE AND FIX BACKEND DATA TESTS GUUUURL [DONE]
+    - only [1] data test failing yay!
+
 - CSS ANIMATION THOOOOOOOOOOO
 ======================================================================
 
 ### thursday questions ### 
-- can i make sign out button to={/} ???
-- how do i make sign out work?!!!!
-- how do i make home button be welcome button if signed in?
+- can i make sign out button to={/} ??? [DONE]
+- how do i make sign out work?!!!![DONE]
+- how do i make home button be welcome button if signed in? [DONE]
 
 

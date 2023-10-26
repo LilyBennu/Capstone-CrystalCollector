@@ -46,6 +46,7 @@ public class AppUserJdbcRepositoryTest {
 
         AppUser lily = repository.findByAppUserId(1, "TestLily");
         assertEquals(1, lily.getAppUserId());
+        assertNotNull(lily);
     }
 
     @Test

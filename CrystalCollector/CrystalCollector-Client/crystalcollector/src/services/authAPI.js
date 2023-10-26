@@ -70,6 +70,8 @@ export function signOut() {
   localStorage.removeItem('jwt_token');
 }
 
+// do i need to import this? can i add a navigate to="/"?
+
 function makeUserFromJwt(jwtToken) {
   const jwtParts = jwtToken.split('.');
   if (jwtParts.length === 3) {

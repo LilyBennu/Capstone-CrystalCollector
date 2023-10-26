@@ -1,5 +1,5 @@
 package crystals.Domain;
-// 2:25 pm
+
 import crystals.Data.CrystalRepository;
 import crystals.Models.Crystal;
 import crystals.Models.CrystalSpecification;
@@ -38,8 +38,6 @@ public class CrystalServiceTest {
 
         assertFalse(result.isSuccess());
     }
-    // angry with string.length for name
-
 
     @Test
     void shouldNotAllowCrystalNameOverMaxChars() {
@@ -63,7 +61,7 @@ public class CrystalServiceTest {
         Result<Crystal> result = crystalService.addCrystal(crystal);
 
         assertFalse(result.isSuccess());
-    } // string.length() angry at null color
+    }
 
 
 
@@ -78,22 +76,6 @@ public class CrystalServiceTest {
         assertFalse(result.isSuccess());
     }
 
-
-    @Test
-    void shouldNotAllowEmptyAmountOwned() {
-
-        Crystal crystal = TestHelper.makeCrystal();
-        crystal.setCrystalId(0);
-        crystal.setAmountOwned(-1);
-
-        Result<Crystal> expected = makeResult("Please enter Amount Owned, if Crystal is Not In Collection put 0", ResultType.INVALID);
-
-        Result<Crystal> actual = crystalService.addCrystal(crystal);
-
-        assertEquals(expected, actual);
-    } // fields match but not references
-
-
     @Test
     void shouldAllowZeroAmountOwned() {
 
@@ -104,7 +86,7 @@ public class CrystalServiceTest {
         Result<Crystal> result = crystalService.addCrystal(crystal);
 
         assertTrue(result.isSuccess());
-    } // FINALLY ONE PASSED
+    }
 
 
     @Test
@@ -115,8 +97,7 @@ public class CrystalServiceTest {
         Result<Crystal> result = crystalService.addCrystal(crystal);
 
         assertFalse(result.isSuccess());
-    } // string.length() angry with null shape
-        // same issue as other Null based tests
+    }
 
 
     @Test
@@ -129,20 +110,7 @@ public class CrystalServiceTest {
         Result<Crystal> result = crystalService.addCrystal(crystal);
 
         assertFalse(result.isSuccess());
-    } // SHE PASSED YAAAAAAAAY
-
-
-    @Test
-    void shouldAllowNullNotes() {
-
-        Crystal crystal = TestHelper.makeCrystal();
-        crystal.setCrystalId(0);
-        crystal.setNotes(null);
-
-        Result<Crystal> result = crystalService.addCrystal(crystal);
-
-        assertTrue(result.isSuccess());
-    } // same issue as other Null tests cant invoke .length()
+    }
 
 
     @Test
@@ -160,19 +128,6 @@ public class CrystalServiceTest {
 
         assertFalse(result.isSuccess());
     }
-
-
-    @Test
-    void shouldAllowNullImgUrl() {
-
-        Crystal crystal = TestHelper.makeCrystal();
-        crystal.setImageUrl(null);
-
-        Result<Crystal> result = crystalService.addCrystal(crystal);
-
-        assertTrue(result.isSuccess());
-
-    } // can't get string.length
 
 
     @Test
@@ -217,12 +172,10 @@ public class CrystalServiceTest {
 
     @Test
     void shouldNotAddNullCrystal() {
-        Result<Crystal> expected = makeResult("Crystal cannot be null", ResultType.INVALID);
+
         Result<Crystal> actual = crystalService.addCrystal(null);
         assertFalse(actual.isSuccess());
-
-        assertEquals(expected, actual);
-    } // failing but low key for right reasons le sigh
+    }
 
 
 

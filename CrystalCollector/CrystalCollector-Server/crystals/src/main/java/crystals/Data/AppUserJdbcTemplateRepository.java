@@ -43,7 +43,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
                 from app_user
                 where app_user_id = ?;
                 """;
-        return jdbcTemplate.query(sql, new AppUserMapper(getAuthorities(appUserName)), appUserName).stream()
+        return jdbcTemplate.query(sql, new AppUserMapper(getAuthorities(appUserName)), appUserId).stream()
                 .findFirst().orElse(null);
     }
 

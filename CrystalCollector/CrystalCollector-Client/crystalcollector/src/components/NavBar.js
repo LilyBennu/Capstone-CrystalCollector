@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import AuthContext from "../contexts/AuthContext";
@@ -6,15 +6,17 @@ import AuthContext from "../contexts/AuthContext";
 import "../styles/navbar.css";
 
 function NavBar() {
-
-    const { user, signOut } = useContext(AuthContext);
-    const auth = useContext(AuthContext);
+    // should it be
+    // const auth = {user: user ?{...user}: null, signIn, signOut}; ?
+    const { user, signout } = useContext(AuthContext);
+    
+    const navigate =useNavigate();
 
     return (
         <nav>
             <div className="navbar-container">
                 <ul>
-                    {auth.user ? (<li className="nav-item">
+                    {user ? (<li className="nav-item">
                     <NavLink to="/welcome" className="nav-link">
                         Home
                     </NavLink>
@@ -34,6 +36,9 @@ function NavBar() {
                         Contact
                     </NavLink>
                     </li>
+
+                    {user ? (
+                        <>
                     <li className="nav-item">
                     <NavLink to="/crystals"  className="nav-link">
                         Crystals
@@ -43,14 +48,28 @@ function NavBar() {
                     <NavLink to="/blurbs"  className="nav-link">
                         Blurbs
                     </NavLink>
+                    </li> </>) : (
+                        <>
+                    <li className="nav-item">
+                    <NavLink to="/"  className="nav-link">
+                        Crystals
+                    </NavLink>
                     </li>
+                    <li className="nav-item">
+                    <NavLink to="/"  className="nav-link">
+                        Blurbs
+                    </NavLink>
+                    </li> </>)}
                     
                     
-                    {auth.user ? (
+                    {user ? (
                     <li> 
                     <div className="sign-out-container">
                         {user.username}
-                        <button className="sign-out-btn" onClick={signOut}>Sign Out</button>
+                        <button className="sign-out-btn" onClick={() => {
+                            signout(); 
+                            navigate("/")
+                        }}>Sign Out</button>
                     </div>
                     </li>) : (<li>
                     <Link to="/">Sign In/ Sign Up</Link>
