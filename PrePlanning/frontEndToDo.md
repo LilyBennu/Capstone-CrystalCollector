@@ -246,7 +246,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ==================================================================
 
-### help needed for wednesday ###
+### help needed for wednesday ### [DONE]
 
 - blurb images not showing 
 - update crystal not working causes error on submit
@@ -260,7 +260,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 - complete viewCrystalDetails page or whatevs its called
 
-- AWS S3!!!!!!!!
+- AWS S3!!!!!!!! [DONE]
     - signed up for account
     - created crystalcollectorbucket 
     - npm installed aws-sdk
@@ -270,7 +270,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - add code to front end [DONE]
 *
 - NEED TO BE ABLE TO SIGN OUT
-- TEST SIGN UP
+- TEST SIGN UP [DONE]
 - make error page
 - about 
 - contact 
@@ -286,5 +286,13 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - modify .js files to have uniform look, change names back to normal low key
 - ADD SOME MFN SPARKLES SOMEWHERE
 - aaaaaaah make these slides for the presentation
+- COMPLETE AND FIX BACKEND DATA TESTS GUUUURL 
+- CSS ANIMATION THOOOOOOOOOOO
+======================================================================
+
+### thursday questions ### 
+- can i make sign out button to={/} ???
+- how do i make sign out work?!!!!
+- how do i make home button be welcome button if signed in?
 
 

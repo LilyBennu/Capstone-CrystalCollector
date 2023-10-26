@@ -1,16 +1,20 @@
 
 
 .crystal-card-container {
-    width: 33%; /* Display three cards in a row */
-    padding: 10px;
+    max-width: 250px;
+    padding: 3px;
     box-sizing: border-box;
     float: left;
+    display: flex;
+    border: 1px solid #0d0d0d;
+    background-color: #431042;
+    border-radius: 5px;
   }
   
   .crystal-card {
     border: 1px solid #c0c0c0;
     background-color: #fff;
-    padding: 10px;
+    padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   

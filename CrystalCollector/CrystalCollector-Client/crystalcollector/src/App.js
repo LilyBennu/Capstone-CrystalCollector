@@ -74,7 +74,7 @@ function App() {
   };
 
 
-//add Route paths for confirm delete blurb and crystal use :ID
+
   return (
 
     <div className="route-container">
@@ -85,19 +85,19 @@ function App() {
                 <Route path="/" element={ <SignIn /> } />
                 <Route path="/signin" element={ <SignInForm /> } />
                 <Route path="/signup" element={ <SignUpForm /> } />
-                <Route path="/welcome" element={ <Welcome /> } />
-                <Route path="/crystals" element={ <CrystalCollection /> } />
-                <Route path="/crystals/detail/:crystalId" element={ <CrystalDetail /> } />
-                <Route path="/blurbs" element={ <Blurbs /> } />
-                <Route path="/blurbs/detail/:blurbsId" element={ <BlurbsDetail /> } />
+                <Route path="/welcome" element={renderWithAuthority(Welcome, "USER")} />
+                <Route path="/crystals" element={renderWithAuthority(CrystalCollection, "USER")} />
+                <Route path="/crystals/detail/:crystalId" element={renderWithAuthority(CrystalDetail, "USER")} />
+                <Route path="/blurbs" element={renderWithAuthority(Blurbs, "USER")} />
+                <Route path="/blurbs/detail/:blurbsId" element={renderWithAuthority(BlurbsDetail, "USER")} />
                 <Route path="/about" element={ <About /> } />
                 <Route path="/contact" element={ <Contact /> } />
-                <Route path="/blurbsform" element={ <BlurbsForm /> } />
-                <Route path="/blurbsform/:blurbsId" element={ <BlurbsForm /> } />
-                <Route path="/crystalform" element={ <CrystalForm /> } />
-                <Route path="/crystalform/:crystalId" element={ <CrystalForm /> } />
-                <Route path="/crystal/remove/:crystalId" element={ <ConfirmRemoveCrystal /> } />
-                <Route path="/blurbs/delete/:blurbsId" element={ <ConfirmDeleteBlurb /> } />
+                <Route path="/blurbsform" element={renderWithAuthority(BlurbsForm, "USER")} />
+                <Route path="/blurbsform/:blurbsId" element={renderWithAuthority(BlurbsForm, "USER")} />
+                <Route path="/crystalform" element={renderWithAuthority(CrystalForm, "USER")} />
+                <Route path="/crystalform/:crystalId" element={renderWithAuthority(CrystalForm, "USER")} />
+                <Route path="/crystal/remove/:crystalId" element={renderWithAuthority(ConfirmRemoveCrystal, "USER")  } />
+                <Route path="/blurbs/delete/:blurbsId" element={renderWithAuthority(ConfirmDeleteBlurb, "USER")} />
                 <Route path="/error" element={ <Error /> } />
                 <Route path="*" element={ <NotFound /> } />
                 

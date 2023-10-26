@@ -48,11 +48,13 @@ function SignUpForm() {
       {success ? (
         <div className="alert alert-success">
           Congratulations {credentials.username}, you have been registered.
-          Login <Link to="/login">here</Link>.
+          Sign In <Link className="sign-in-btn" to="/signin">Here!</Link>
         </div>
       ) : (
+        
         <form onSubmit={handleSubmit}>
           <div>
+            <h2>Sign Up</h2>
             <div className="signup-form-group">
               <label htmlFor="signup-label">Username</label>
               <input
@@ -90,12 +92,12 @@ function SignUpForm() {
               />
             </div>
             <div>
-              <Link to="/" className="signup-btn btn-secondary">
-                Cancel
-              </Link>
               <button type="submit" className="signup-btn btn-primary">
                 Sign up
               </button>
+              <Link to="/" className="signup-btn btn-secondary">
+                Cancel
+              </Link>
             </div>
           </div>
         </form>

@@ -38,6 +38,10 @@ byId("btnUpload").addEventListener("click", function () {
     };
 
     fetch("/crystals/upload", init)
-        .then(() => console.log("success!"))
+        .then((imageUrl) => console.log({}))
         .catch(console.error);
 });
+
+
+// when get image url 
+// do post request to blurb img

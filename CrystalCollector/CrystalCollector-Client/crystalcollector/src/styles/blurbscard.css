@@ -1,10 +1,10 @@
 
 .blurb-card-container {
     max-width: 300px;
-    padding: 10px;
+    padding: 1px;
     display: flex;
     justify-content: center;
-    background-color: #fff;
+    background-color: #7c2b8a;
     border-radius: 5px;
     border-color: #d448af;
     border: 2px solid;
@@ -15,11 +15,12 @@
     width: 100%;
     max-width: 500px;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #dd1c80;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    padding: 10px;
+    padding: 8px;
+    max-height: fit-content;
   }
   
   .blurb-card-title {
@@ -39,6 +40,7 @@
     height: auto;
     display: block;
     margin: 20px auto;
+    max-height: 200px;
   }
   
   .blurb-card-edit-btn,

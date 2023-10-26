@@ -6,7 +6,7 @@ import AuthContext from "../contexts/AuthContext";
 
 function BlurbsCard({ blurbs }) {
 
-    const { user, hasAuthority } = useContext(AuthContext); // do i need to add && USER if the user is already logged in?
+    const { user, hasAuthority } = useContext(AuthContext); 
 
     return (
         <div className="blurb-card-container">
