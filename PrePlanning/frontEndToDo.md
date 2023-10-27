@@ -307,4 +307,10 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - how do i make sign out work?!!!![DONE]
 - how do i make home button be welcome button if signed in? [DONE]
 
+=============================================
+
+### friday to do! ###
+
+- present
+- cry with joy for all you've accomplished!!!!!!
 

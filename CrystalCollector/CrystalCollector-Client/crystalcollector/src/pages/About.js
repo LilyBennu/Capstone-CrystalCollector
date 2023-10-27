@@ -7,7 +7,22 @@ function About() {
                 <h1 className="h1-title">About Us</h1>
             </div>
             <div className="about-text-container">
-                <p>Here at Crystal Collector</p>
+                <p>Here at Crystal Collector
+                    <br/>
+                    We are here to help you with <br/>your
+                    crystal inventory needs!
+                    <br/>
+                    Keep track of the crystals you have<br/>
+                    and maybe many more that you wish
+                    to add!
+                    <br/>
+                    Maintain your random thoughts,<br/> inquiries,
+                     and wishlist, with Blurbs!
+                     <br/>
+                     Sign Up today and enjoy and catalog your<br/>
+                     captivating crystal collection!
+
+                </p>
             </div>
 
         </div>
