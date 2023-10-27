@@ -26,7 +26,7 @@ function Blurbs() {
     return (
         <div className="blurbs-list-container">
             <div>
-             <h1> { user.username }'s Blurbs! </h1>
+             <h1 className="h1-title"> { user.username }'s Blurbs! </h1>
             </div>
 
             <div className="add-blurb-button">

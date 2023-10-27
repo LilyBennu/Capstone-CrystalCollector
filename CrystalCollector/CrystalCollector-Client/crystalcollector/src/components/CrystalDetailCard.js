@@ -1,6 +1,7 @@
 import { useContext  } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
+import "../styles/crystaldetail.css"
 
 function CrystalDetailCard({ crystal }) {
 

@@ -1,7 +1,8 @@
 .h1-title {
-  color: #ffffff;
+  color: #9c34aa;
   text-align: center;
   margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
  }
 
 .crystal-list-container {

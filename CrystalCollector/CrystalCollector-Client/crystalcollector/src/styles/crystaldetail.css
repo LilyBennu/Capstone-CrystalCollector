@@ -1,0 +1,46 @@
+/* crystaldetail.css */
+
+.crystal-detail-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .crystal-detail-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+  }
+  
+  .crystail-detail-img-top {
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .crystal-detail-text-body {
+    margin-top: 20px;
+  }
+  
+  .crystal-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+
+
+  

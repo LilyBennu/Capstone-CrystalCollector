@@ -3,7 +3,7 @@ import "../styles/welcome.css";
 function Welcome() {
     return (
         <div className="welcome-animation">
-            <h1>Welcome to Crystal Collector!</h1>
+            <h1 className="welcome-text">Welcome to Crystal Collector!</h1>
         </div>
     )
 

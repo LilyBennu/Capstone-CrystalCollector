@@ -1,4 +1,4 @@
-
+import "../styles/contact.css"
 
 function Contact() {
     return (
@@ -16,7 +16,9 @@ function Contact() {
                 <p>
                     Email: lilydacreator@crystalcollector.com
                     <br/>
+                    <br/>
                     Phone: 1-800-CRY-STAL (1-800-279-7825)
+                    <br/>
                     <br/>
                     Address: 888 Amethyst Ln
                     <br/>

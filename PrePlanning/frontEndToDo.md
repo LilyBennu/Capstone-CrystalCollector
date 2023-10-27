@@ -284,15 +284,15 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - complete viewCrystalDetails page or whatevs its called [DONE]
 
 - make error page 
-- about 
-- contact 
+- about [DONE]
+- contact [DONE]
 - not found
 
 - enter in hella crystal into issaMeLily!
 - enter fakey cakes crystals into Anti-Lily's profile
 - same for blurbs
 - modify .js files to have uniform look, change names back to normal low key
-- ADD SOME MFN SPARKLES SOMEWHERE
+- ADD SOME MFN SPARKLES SOMEWHERE [DONE]
 
 - aaaaaaah make these slides for the presentation
 

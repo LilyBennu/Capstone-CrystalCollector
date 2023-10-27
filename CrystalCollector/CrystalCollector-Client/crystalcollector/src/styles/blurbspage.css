@@ -9,7 +9,8 @@
   .blurbs-list-container h1 {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #f9f9f9;
+    color: #63188e;
+    background-color: rgba(255, 255, 255, 0.9);
   }
   
   .add-blurb-btn {
@@ -43,6 +44,13 @@
     border: 1px solid #ddd;
     border-radius: 5px;
   }
+
+  .h1-title {
+    color: #9c34aa;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+   }
   
   
   
