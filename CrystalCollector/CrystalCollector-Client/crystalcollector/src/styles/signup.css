@@ -1,5 +1,3 @@
-/* Apply this CSS to your SignUpForm component or import it in the component's CSS file */
-
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -7,9 +5,9 @@
     text-align: center;
     margin-top: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid #f4d2ef;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #6b1c6b;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
   
@@ -41,15 +39,17 @@
     font-size: 16px;
   }
   
-  .signup-btn.btn-secondary {
+  .signup-btn-cancel {
     background-color: #b51189;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px 20px;
+    margin-left: 25px;
   }
   
-  .signup-btn.btn-primary {
+  .signup-btn {
     background-color: #b51189;
     color: #fff;
     border: none;
@@ -60,4 +60,3 @@
   .signup-btn.btn-secondary:hover, .signup-btn.btn-primary:hover {
     background-color: #cc7ccf;
   }
-  

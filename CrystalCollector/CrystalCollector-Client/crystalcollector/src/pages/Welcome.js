@@ -1,8 +1,10 @@
-
+import "../styles/welcome.css";
 
 function Welcome() {
     return (
-        <h1>Welcome to Your Crystal Collection</h1>
+        <div className="welcome-animation">
+            <h1>Welcome to Crystal Collector!</h1>
+        </div>
     )
 
 }

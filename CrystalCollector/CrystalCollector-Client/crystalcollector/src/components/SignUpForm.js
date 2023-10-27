@@ -51,7 +51,7 @@ function SignUpForm() {
           Sign In <Link className="sign-in-btn" to="/signin">Here!</Link>
         </div>
       ) : (
-        
+        <div className="sign-up-form-container">
         <form onSubmit={handleSubmit}>
           <div>
             <h2>Sign Up</h2>
@@ -92,15 +92,16 @@ function SignUpForm() {
               />
             </div>
             <div>
-              <button type="submit" className="signup-btn btn-primary">
+              <button type="submit" className="signup-btn">
                 Sign up
               </button>
-              <Link to="/" className="signup-btn btn-secondary">
+              <Link to="/" className="signup-btn-cancel">
                 Cancel
               </Link>
             </div>
           </div>
         </form>
+        </div>
       )}
     </div>
   );

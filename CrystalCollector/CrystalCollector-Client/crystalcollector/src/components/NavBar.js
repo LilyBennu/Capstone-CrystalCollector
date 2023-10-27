@@ -6,8 +6,7 @@ import AuthContext from "../contexts/AuthContext";
 import "../styles/navbar.css";
 
 function NavBar() {
-    // should it be
-    // const auth = {user: user ?{...user}: null, signIn, signOut}; ?
+    
     const { user, signout } = useContext(AuthContext);
     
     const navigate =useNavigate();
@@ -65,14 +64,14 @@ function NavBar() {
                     {user ? (
                     <li> 
                     <div className="sign-out-container">
-                        {user.username}
+                       <div className="username-display"> {user.username} </div>
                         <button className="sign-out-btn" onClick={() => {
                             signout(); 
                             navigate("/")
                         }}>Sign Out</button>
                     </div>
                     </li>) : (<li>
-                    <Link to="/">Sign In/ Sign Up</Link>
+                    <Link className="sign-in-up-btn" to="/">Sign In / Sign Up</Link>
                     </li>)}
                 </ul>
             </div>

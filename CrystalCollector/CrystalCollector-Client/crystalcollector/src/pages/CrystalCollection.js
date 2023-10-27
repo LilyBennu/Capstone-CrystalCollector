@@ -20,11 +20,11 @@ function CrystalCollection() {
               state: { message: err },
             })
           );
-      }, [navigate]);
+    }, [navigate]);
 
     return (
         <div className="crystal-list-container">
-            <div>
+            <div className="h1-title">
                 <h1> {user.username}'s Crystal Collection! </h1>
             </div>
             <div className="add-crystal-button">

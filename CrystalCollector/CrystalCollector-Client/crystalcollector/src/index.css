@@ -1,5 +1,7 @@
-body {
-  background-color: rgb(182, 111, 182);
-  
-  
+.background-image {
+  background-image: url(../public/images/sitebackground.jpg);
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

@@ -6,12 +6,12 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import AuthContext from "./contexts/AuthContext";
 import Blurbs from "./pages/Blurbs";
-import BlurbsDetail from "./pages/BlurbsDetail";
 import BlurbsForm from "./components/BlurbsForm";
 import ConfirmDeleteBlurb from "./components/ConfirmDeleteBlurb";
 import Contact from "./pages/Contact";
 import CrystalCollection from "./pages/CrystalCollection";
 import CrystalDetail from "./pages/CrystalDetail";
+
 import CrystalForm from "./components/CrystalForm";
 import ConfirmRemoveCrystal from "./components/ConfirmRemoveCrystal";
 import Error from "./pages/Error";
@@ -89,7 +89,6 @@ function App() {
                 <Route path="/crystals" element={renderWithAuthority(CrystalCollection, "USER")} />
                 <Route path="/crystals/detail/:crystalId" element={renderWithAuthority(CrystalDetail, "USER")} />
                 <Route path="/blurbs" element={renderWithAuthority(Blurbs, "USER")} />
-                <Route path="/blurbs/detail/:blurbsId" element={renderWithAuthority(BlurbsDetail, "USER")} />
                 <Route path="/about" element={ <About /> } />
                 <Route path="/contact" element={ <Contact /> } />
                 <Route path="/blurbsform" element={renderWithAuthority(BlurbsForm, "USER")} />

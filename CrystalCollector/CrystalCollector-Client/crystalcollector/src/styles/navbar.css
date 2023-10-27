@@ -1,39 +1,67 @@
 
-
-nav {
-  background-color: #560e64; 
-  color: #fff; 
-  border: 2px solid #f6f6f6; 
-  border-radius: 10px;
-}
-
 .navbar-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  align-items: center;
+    background-color: #4f1e3f; 
+    border: 2px solid #fff; 
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px; 
+    border-radius: 5px;
+    max-width: 600px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+
+.navbar-container ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
 }
+
 
 .nav-item {
-  margin: 0 10px;
+    margin: 0 10px;
+    font-size: medium;
+    line-height: 2;
 }
+
 
 .nav-link {
-  text-decoration: none;
-  color: #fff; 
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #b51189; 
+    color: #fff; 
+    text-decoration: none;
 }
 
 
+.sign-in-up-btn {
+    background-color: #b51189; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-left: 110px;
+    line-height: 2;
+
+}
+
+
+.sign-out-container {
+    display: flex;
+    align-items: center;
+    color: #fff; 
+}
+
+
+.username-display {
+    margin-left: 80px;
+}
+
+
+.sign-out-btn {
+    background-color: #b51189; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-left: 10px;
+}

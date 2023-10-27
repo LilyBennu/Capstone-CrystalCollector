@@ -281,7 +281,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 
 ### thursday to do ###
 
-- complete viewCrystalDetails page or whatevs its called
+- complete viewCrystalDetails page or whatevs its called [DONE]
 
 - make error page 
 - about 
@@ -299,7 +299,7 @@ npm instal (useeffect package and nav i think, right?) and bootstraps?
 - COMPLETE AND FIX BACKEND DATA TESTS GUUUURL [DONE]
     - only [1] data test failing yay!
 
-- CSS ANIMATION THOOOOOOOOOOO
+- CSS ANIMATION THOOOOOOOOOOO [DONE]
 ======================================================================
 
 ### thursday questions ### 

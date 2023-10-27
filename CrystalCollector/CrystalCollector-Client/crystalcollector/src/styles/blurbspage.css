@@ -24,6 +24,11 @@
     justify-content: center;
     text-decoration: none;
   }
+
+  .add-blurb-btn:hover {
+    background-color: #a30cab; 
+    color: #36052f; 
+  }
   
   .row {
     display: flex;

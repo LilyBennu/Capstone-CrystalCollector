@@ -41,7 +41,7 @@ function SignInForm() {
     <div className="signin-form-container">
       <ValidationSummary errors={errors} />
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="sign-in-form">
           <div className="signin-form-group">
             <label htmlFor="label">Username</label>
             <input

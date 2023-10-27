@@ -118,7 +118,7 @@ public List<Crystal> viewAllCrystals(int appUserId) {
                        c.image_url, c.crystal_specification_id, c.app_user_id, cs.crystal_type
                 from crystal c
                 inner join crystal_specification cs on c.crystal_specification_id = cs.crystal_specification_id
-                where crystal_id = ?;
+                where c.crystal_id = ?;
                 """;
         return jdbcTemplate.query(sql, new CrystalMapper(), crystalId).stream().findFirst().orElse(null);
     }

@@ -2,7 +2,6 @@ import { useContext  } from "react";
 import { Link } from "react-router-dom";
 import "../styles/crystalcard.css";
 
-
 import AuthContext from "../contexts/AuthContext";
 
 function CrystalCards({ crystal }) {
@@ -15,7 +14,7 @@ function CrystalCards({ crystal }) {
                 <img src={crystal.imageUrl} className="card-image-top" alt={crystal.crystalName} />
                 <h5 className="crystal-card-title">{crystal.crystalName}</h5>
                 <div className="crystal-card-state-btns">
-                    <Link to={`/crystal/detail/${crystal.crystalId}`} className="crystal-card-view-btn">
+                    <Link to={`/crystals/detail/${crystal.crystalId}`} className="crystal-card-view-btn">
                         View
                     </Link>
                     <Link to={`/crystalform/${crystal.crystalId}`} className="crystal-card-edit-btn">

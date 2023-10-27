@@ -1,0 +1,43 @@
+/* Styles for the main container */
+.about-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    /*background-image: url('your-image-url.jpg');  Replace 'your-image-url.jpg' with the actual image URL */
+    background-size: cover; /* Adjust the background size as needed */
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 2000px;
+}
+
+/* Styles for the image container (to the left) */
+.about-img-container {
+    flex: 1;
+    margin-right: 20px;
+   
+}
+
+/* Styles for the image itself */
+.about-img-container img {
+    
+    height: 400px;
+    max-width: 500px;
+}
+
+/* Styles for the text container (to the right) */
+.about-text-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+}
+
+/* Additional styling for the h1 title */
+.h1-title {
+    text-align: center;
+    color: #000;
+}
